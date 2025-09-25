@@ -14,7 +14,13 @@ lowercase = False
 UPPERCASE = False
 camelCase = False
 UpperCamelCase = False
-kebab-case = False #doesn't even work
 snake_case = True
 SCREAMING_SNAKE_CASE = True
 # Keep Names Concise
+
+user_name = input("What is your name?\n>")
+print("Your name is " + user_name) #whaaat the program knows my name!!
+print("Cat" * 20)
+num = input("What number square????\n>")
+num = int(num)
+print(num*num)
