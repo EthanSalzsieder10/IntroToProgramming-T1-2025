@@ -25,6 +25,8 @@ input adjective
 input noun 4
 print story
 '''
+def mad_lib(noun_1, adjective_1, color, number, noun_2, verb_1, noun_3, unit_time, name, adverb, adjective_2, noun_4):
+    print(f"Once upon a {noun_1}, there lived a/n {adjective_1} princess. The princess had a {color} dress and was {number} feet tall.The princess spent her days locked in a {noun_2}, and could only pass the time {verb_1}. Legend said that the only one who could save her was her one true {noun_3}. One {unit_time}, a brave knight named {name} came for her. The knight tried to save the princess by {adverb} climbing the tower walls. The knight, however, was too {adjective_2}, and slid right down. The princess realized she could just jump out and did so, only breaking her {noun_4}.")
 
 noun_1 = input("noun\n> ")
 adjective_1 = input("adjective\n> ")
@@ -39,4 +41,4 @@ adverb = input("adverb\n> ")
 adjective_2 = input("adjective\n> ")
 noun_4 = input("noun\n> ")
 
-print(f"Once upon a {noun_1}, there lived a/n {adjective_1} princess. The princess had a {color} dress and was {number} feet tall.The princess spent her days locked in a {noun_2}, and could only pass the time {verb_1}. Legend said that the only one who could save her was her one true {noun_3}. One {unit_time}, a brave knight named {name} came for her. The knight tried to save the princess by {adverb} climbing the tower walls. The knight, however, was too {adjective_2}, and slid right down. The princess realized she could just jump out and did so, only breaking her {noun_4}.")
+mad_lib(noun_1, adjective_1, color, number, noun_2, verb_1, noun_3, unit_time, name, adverb, adjective_2, noun_4)
