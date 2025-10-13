@@ -1,4 +1,3 @@
-'''
 x = input("Number. NOW.\n> ")
 if x == "6":
     print("X equals six")
@@ -13,7 +12,6 @@ elif False:
     print("This will never print")
 else:
     print("this will also never print")
-'''
 
 password = "Six Sendy"
 def password_ask():
