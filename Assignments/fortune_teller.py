@@ -41,7 +41,7 @@ print("FORTUNE:")
 if birth_yr < 1950:
     print("You will be dead of old age. Holy unc.")
 elif years > 100:
-    print("You'll be dead and then reincarnated as a bacteria.")
+    print("You'll be dead and then reincarnated as someone named draggin canoe.")
 elif years < 0:
     print("You set the years to negative, that's the past. Pick up a history textbook.")
 elif birth_yr == 2010 and birth_day == 25:
