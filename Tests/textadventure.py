@@ -6,20 +6,20 @@ def start():
     print("\nWhat game mode do you want to play?")
     print("1. Trophy Road")
     print("2. Classic 2v2")
-    print("3. None, play Clash of Clans")
+    print("3. Neither, play Clash of Clans")
     choice = input(">>>")
     print()
     if choice == "1":
-        tr_first_play()
+        first_play()
     elif choice == "2":
         print("You try to play a 2v2, but the server for 2v2s seems to be down. It's as if the developers of the game were too lazy to fix the issue and are instead investing all of their time and energy into Trohpy Road. You play a trophy road game instead.\n")
-        tr_first_play()
+        first_play()
     elif choice == "3":
         ending_1()
     else:
         print("Invalid Input. Must be a number 1-3.")
         start()
-def tr_first_play():
+def first_play():
     print("You load into a trophy road game. Your opponent's tower level is two above yours and they are already spamming the goblin 'mimimimimi' emote.\n")
     print("The first 10 seconds pass and no one has played a card. You are leaking elixer, as is the enemy. What do you do?")
     print("1. Push Valkyrie and Prince on the bridge")
@@ -29,17 +29,17 @@ def tr_first_play():
     choice = input(">>>")
     print()
     if choice == "1":
-        tr_prince_valk()
+        prince_valk()
     elif choice == "2":
-        tr_fire_king()
+        fire_king()
     elif choice == "3":
         print()
     elif choice == "4":
         print("")
     else:
         print("Invalid Input. Must be a number 1-4.")
-        tr_first_play()
-def tr_prince_valk():
+        first_play()
+def prince_valk():
     global op_tower
     op_tower = op_tower - 500
     print("You push a Valk and Prince on the bridge. Your opponent plays a Pekka, which mostly defends, but you get a few hundred damage on the tower.\n")
@@ -51,7 +51,7 @@ def tr_prince_valk():
     choice = input(">>>")
     print()
     if choice == "1":
-        tr_fire_king()
+        fire_king()
     elif choice == "2":
         print("")
     elif choice == "3":
@@ -60,8 +60,8 @@ def tr_prince_valk():
         print("")
     else:
         print("Invalid Input. Must be a number 1-4.")
-        tr_prince_valk()
-def tr_fire_king():
+        prince_valk()
+def fire_king():
     global king_activate
     global op_tower
     king_activate = True
@@ -75,7 +75,7 @@ def tr_fire_king():
     print()
     if choice == "1":
         print("You place a cannon to distract the Mega Knight.")
-        tr_cannon()
+        cannon()
     elif choice == "2":
         print("")
     elif choice == "3":
@@ -84,11 +84,11 @@ def tr_fire_king():
         global doubt
         doubt = doubt + 1
         print("No you don't. You must keep playing. This is why we Clash. You place a cannon to distract the Mega Knight.")
-        tr_cannon()
+        cannon()
     else:
         print("Invalid Input. Must be a number 1-4.")
         encounter()
-def tr_cannon():
+def cannon():
     global my_tower
     my_tower = my_tower - 500
     print("\nThe cannon distracts the Mega Knight long enough for the tower to only take a few hits. You suspect the opponent has no elixer. What do you do?")
@@ -99,7 +99,7 @@ def tr_cannon():
     choice = input(">>>")
     print()
     if choice == "1":
-        tr_inferno_dragon()
+        inferno_dragon()
     elif choice == "2":
         print("He didn't have a lot of elixer, but he had a little. Your push gets ruined by a single log.")
     elif choice == "3":
@@ -108,17 +108,19 @@ def tr_cannon():
         print("As you gain more elixer, so does your opponent. He rockets your Tower.")
     else:
         print("Invalid Input. Must be a number 1-4.")
-        tr_cannon()
-def tr_inferno_dragon():
+        cannon()
+def inferno_dragon():
     global op_tower
     global king_activate
     if king_activate == True:
         print("It would've worked, but you activated the King Tower by fireballing it so you only get chip damage.")
         op_tower = op_tower - 500
+        final_minute()
     else:
         print("Your opponent can't defend the dragon and you get a lot of damage on the tower.")
         op_tower = op_tower - 2000
-def tr_final_minute():
+        final_minute()
+def final_minute():
     print("\nYou enter the last minute of the game, and 2x elixer activates. No towers have been taken yet. What do you do?")
     print("1. Push with Valkyrie and Prince")
     print("2. Spell the tower")
@@ -132,17 +134,19 @@ def tr_final_minute():
         print("You spell the tower. It gets a little damage.")
     elif choice == "3":
         print("You decide its better to wait for your opponent to plays first so you can properly counter.")
+        final_wait()
     elif choice == "4":
         global doubt
         doubt = doubt + 1
         print("But think of the trophies. Think of the evolutions you'll unlock. You have some time to reflect on this while you wait for your opponent to play first.")
+        final_wait()
     else:
         print("Invalid Input. Must be a number 1-4.")
-        encounter()
-def tr_final_wait():
+        final_minute()
+def final_wait():
     global my_tower
-    my_tower = my_tower - 0.0
-    print("Aaaaaand he played a Mega Knight and a Pekka together somehow. How do you defend?")
+    global doubt
+    print("\nAaaaaand he played a Mega Knight and a Pekka together somehow. How do you defend?")
     print("1. Skarmy")
     print("2. Cannon")
     print("3. Fireball and prayers")
@@ -150,18 +154,105 @@ def tr_final_wait():
     choice = input(">>>")
     print()
     if choice == "1":
-        print("")
+        print("You place a skarmy behind the Pekka as a last desperate play. It somehow works and distracts both troops long enough to not take damage. Your opponent must be fuming.")
+        universal_final_play()
     elif choice == "2":
-        print("")
+        print("You place a cannon to distract. It takes out the Mega Knight, but the Pekka still does massive damage to your tower")
+        my_tower = my_tower - 2000
+        if my_tower <= 0 and doubt > 0:
+            print("The Pekka takes your tower and your opponent sends a chicken emote.")
+        elif my_tower <= 0:
+            print("The Pekka takes your tower and your opponent sends a chicken emote.")
+        else:
+            universal_final_play()
     elif choice == "3":
-        print("")
+        print("You fireball the troops and pray. It takes about half of their health. You have no elixer and your towers are doomed.\n")
+        if doubt > 0:
+            ending_2()
+            return
+        else:
+            ending_3()
+            return
     elif choice == "4":
-        global doubt
         doubt = doubt + 1
-        print("You can't give up when you came this far. You must keep pushing. You must reach 10k trophies or your life will have no meaning. You place a skarmy behind the Pekka and hope it works.")
+        print("You can't give up when you came this far. You must keep pushing. You must reach 10k trophies or your life will have no meaning. You place a skarmy behind the Pekka and hope it works.\n\nIt somehow works and distracts both troops long enough to not take damage. Your opponent must be fuming.")
+        universal_final_play()
     else:
         print("Invalid Input. Must be a number 1-4.")
-        encounter()
+        final_wait()
+def universal_final_play():
+    global op_tower
+    global my_tower
+    print("\nIt's overtime now. You feel this game has lasted forever. You could make a text adventure out of this. You've lasted this long, you must win. You will win. What do you do?")
+    print("1. Push with Prince and Valkyrie")
+    print("2. Push with Baby Dragon and Inferno Dragon")
+    print("3. Push with Skarmy and freeze on the tower.")
+    print("4. Place skarmy in the back and cannon in the center for defense.")
+    if doubt == 3:
+        print("-OR-")
+        print("5. Delete Clash.")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("You play a strong push and the opponent is unable to defend.\n")
+        op_tower = op_tower - 2000
+        if op_tower <= 0 and doubt > 0:
+            ending_4()
+            return
+        elif op_tower <= 0:
+            ending_5()
+            return
+        else:
+            print("But it's not enough. The tower is till hanging on by a thread and you are out of elixer. The opponent plays evo goblin barrel and freezes the tower.\n")
+            if doubt > 0:
+                ending_2()
+                return
+            else:
+                ending_3()
+                return
+    elif choice == "2":
+        print("You play a completely arial push. The opponent did not prepare for this and you ravage the tower.\n")
+        if doubt > 0:
+            ending_4()
+            return
+        else:
+            ending_5()
+            return
+    elif choice == "3":
+        print("Your opponent counters with a single log. You're done for. He plays evo goblin barrel and freezes the tower.")
+        if doubt > 0:
+            ending_2()
+            return
+        else:
+            ending_3()
+            return
+    elif choice == "4":
+        print("Your Opponent spams in one lane to get a quick win, but your defense tanks most of the damage.\n")
+        my_tower = my_tower - 500
+        if my_tower <= 0:
+            print("But most doesn't cut it. That little bit of damage is all he needs.")
+            if doubt > 0:
+                ending_2()
+                return
+            else:
+                ending_3()
+                return
+        else:
+            print("Your opponent runs out of elixer and you are free to place one prince and take the tower.\n")
+            if doubt > 0:
+                ending_4()
+                return
+            else:
+                ending_5()
+                return
+    elif choice == "5" and doubt == 3:
+        secret_ending()
+    else:
+        if not doubt == 3:
+            print("Invalid Input. Must be a number 1-4.")
+        else:
+            print("Invalid Input. Must be a number 1-5.")
+        universal_final_play()
 def encounter():
     global op_tower
     op_tower += 0.0
@@ -184,22 +275,17 @@ def encounter():
     else:
         print("Invalid Input. Must be a number 1-4.")
         encounter()
-def check_towers():
-    if op_tower <= 0:
-        print("You successfully take your opponent's tower.")
-    elif my_tower <= 0:
-        print("Your opponent takes your tower.")
 def ending_1():
     print("You play Clash of Clans.")
     print("Ending 1 of 5: Worst Ending\n")
 def ending_2():
-    print("Your opponent spams the laughing emote as you have to watch yourself get 3-Crowned no diff. You will never psycologically recover from this game.")
+    print("Your opponent spams the laughing emote as you have to watch yourself get 3-Crowned no diff. You will never psycologically recover from this game. Why DO we Clash?")
     print("Ending 2 of 5: Crashout\n")
 def ending_3():
     print("You let out a huge sigh as your opponent somehow edges out a win. But if you play ONE more game, you'll come back.")
     print("Ending 3 of 5: Denial\n")
 def ending_4():
-    print("")
+    print("You won, but what does it matter? You will only lose a thousand more games. You would dwell on this thought, but you fingers already clicked the 'play again' button. Eh, one more game.")
     print("Ending 4 of 5: Doubt\n")
 def ending_5():
     print("LOOOL GGS TOO EZ THIS IS THE BEST GAME EVER")
@@ -212,7 +298,7 @@ print("\nYou are a high school boy who is hopelessly addicted to Clash Royale. Y
 start()
 import turtle
 t = turtle.Turtle()
-t.speed(6)
+t.speed(2.5)
 t.shape("turtle")
 t.penup()
 t.goto(-175, 100)
@@ -239,4 +325,3 @@ t.goto(175, 50)
 t.goto(75, 100)
 # Deck: Prince, Evo Valk, Fireball, Evo Inferno Dragon, Baby Dragon, Log, Cannon, Skarmy
 # TR Op Deck: Pekka, Skarmy, Evo Mega Knight, Tesla Tower, Rocket, Log, Evo Goblin Barrel, Freeze
-# 2v2 Op Deck: Whatever I want it to be
