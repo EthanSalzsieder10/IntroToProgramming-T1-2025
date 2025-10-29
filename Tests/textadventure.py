@@ -12,7 +12,7 @@ def start():
     if choice == "1":
         first_play()
     elif choice == "2":
-        print("You try to play a 2v2, but the server for 2v2s seems to be down. It's as if the developers of the game were too lazy to fix the issue and are instead investing all of their time and energy into Trohpy Road. You play a trophy road game instead.\n")
+        print("You try to play a 2v2, but the server for 2v2s seems to be down. It's as if the creators of the game, while wanting to, didn't have the time or energy to make a whole different game mode. You play a trophy road game instead.\n")
         first_play()
     elif choice == "3":
         ending_1()
@@ -21,7 +21,7 @@ def start():
         start()
 def first_play():
     print("You load into a trophy road game. Your opponent's tower level is two above yours and they are already spamming the goblin 'mimimimimi' emote.\n")
-    print("The first 10 seconds pass and no one has played a card. You are leaking elixer, as is the enemy. What do you do?")
+    print("The first 10 seconds pass and no one has played a card. You are leaking elixir, as is the enemy. What do you do?")
     print("1. Push Valkyrie and Prince on the bridge")
     print("2. Fireball the Towers")
     print("3. Split Skarmy in the back")
@@ -31,11 +31,12 @@ def first_play():
     if choice == "1":
         prince_valk()
     elif choice == "2":
+        cinema()
         fire_king()
     elif choice == "3":
-        print()
+        split_skarmy()
     elif choice == "4":
-        print("")
+        start_wait()
     else:
         print("Invalid Input. Must be a number 1-4.")
         first_play()
@@ -51,87 +52,66 @@ def prince_valk():
     choice = input(">>>")
     print()
     if choice == "1":
+        cinema()
         fire_king()
     elif choice == "2":
         log_cycle()
+    elif choice == "3":
+        baby_dragon()
+    elif choice == "4":
+        print("You spam chicken emotes and wait for your opponent to place something.")
+        mega_knight()
+    else:
+        print("Invalid Input. Must be a number 1-4.")
+        prince_valk()
+def split_skarmy():
+    global op_tower
+    global my_tower
+    op_tower = op_tower - 100
+    print("\nYour opponent feels no need to defend, and you get about a hundred damage on the tower")
+    print("\nYour opponent plays lumberjack and a balloon. How do you defend?")
+    print("1. Fireball and Baby Dragon")
+    print("2. Cannon and Inferno Dragon")
+    print("3. Valkyrie and Freeze")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("The fireball does next to nothing to either card, and baby dragon doesn't help very much. Your tower takes a major hit.")
+        my_tower = my_tower - 2500
+        print("\nYou wasted a bunch of elixir on your useless defense, so you have to wait for your opponent to place something.")
+        mega_knight()
+    elif choice == "2":
+        inferno_counter()
+    elif choice == "3":
+        print("Your valkyrie completely destroys the lumberjack, and the freeze allows the tower to take out some balloon health. The balloon still gets good damage in.\n")
+        print("You spent a lot of elixir on defense, so you have to wait for your opponent to place something.")
+        my_tower = my_tower - 750
+        mega_knight()
+    else:
+        print("Invalid Input. Must be a number 1-4.")
+        split_skarmy()
+def start_wait():
+    global op_tower
+    op_tower += 0.0
+    print()
+    print("Your opponent plays a goblin barrel on your tower. What do you do?")
+    print("1. Play log")
+    print("2. Let the tower tank")
+    print("3. Play Valkyrie")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("")
+    elif choice == "2":
+        print("")
     elif choice == "3":
         print("")
     elif choice == "4":
         print("")
     else:
         print("Invalid Input. Must be a number 1-4.")
-        prince_valk()
+        start_wait()
 def fire_king():
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@#.-%@:-+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@+.:#@-=+@@@@@@#+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@%%@*.:*@-.:*@@@@*.-%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("% .%#  :@-..=@@@@::+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+%@@@@=+#@@@@@@@@")
-    print("%..+%  .%=  =@@@=.:*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*-+%@@@-=*@*=%@@@@")
-    print("@  :#.  *+  =@@*.:=%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-=+%@@--+%%-*@@@@")
-    print("@.  *:  #+  *@@:.-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%#*+*=-=*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*:=*%@-.-#@-=@@++")
-    print("@+  :.    ...::-=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+.  .:---:==-+*%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%-:-*@+.:+@.:%%++")
-    print("@*.      .:..:-=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= .: :-==+*+**+**#*#%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*.:-==----=+@@++")
-    print("@-. ....::::=+=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= .....:-=++*###%@@@@##%@@@@@@@@@@@@@@%%%%%%%%%%@@@@@@@@@@@@@@%@@%@+ ....-:.:=:=%@")
-    print("@-  .. .::-----=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#  ..  .:-==++****#%@@@@@%%@@%%%@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%#+=+#%%--::+=.   .=-+")
-    print("@+...:::.::::-:::::::-+*#%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=      ..:-==++===++*#%@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:=****#@@*-=@%:.    .=")
-    print("@#:.:::..:::::.:-:=#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=   . . .:---===--==+*#@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@%@@@@@@@@@%@%%  -.....:..*#*")
-    print("@=. ..::.::-::--=%%*====*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%       .:-+++++++**#%@@@@@%%@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@%###*+=+*@+:  .=")
-    print("@@-:.::.:::---==+*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*   :.    :--+=:---=++##%@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+=+**+-#@@+. -#")
-    print("@@---==-----=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#   . .-*%%%#*+-+*%@@@@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%#%#++#%%@++.+@")
-    print("@@-:::::-=+*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%    .+#**####=-*@@####@@@@@@@%##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%####%#%#***+*@%%#=%@")
-    print("@%:...:-=-*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*    -#%%@@%*=:-=@@==*%@@@@@@@@####################%%%%%%%%%%%%##########+=*+*+*-=+%@")
-    print("@#:....-=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-   :=:===*+=-:=%@@++*%@@@@@@%###########################################+*=--..==#@")
-    print("@= . .:-=+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#- :.  :=*#%=-=  :-@@*+***#@@@@%*##########################################*- :--+#@@@")
-    print("%+=**##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%=-. .:-=++--=. ::+@@@%**#@@@@@############################################%@@@@@@@@@@")
-    print("*%***##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%:- .:-*=:=*==##@@@@@@@@%@@@@@#############################################@@@@@@@@@@")
-    print("*@+**##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%*..::-:-++=-:-==+#@@@@@@@@@@@*####################################################%@")
-    print("#@***##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@.. .:-+=====+*#%@@@@##%@@@%######################***********#########****#@%%%@@@@@")
-    print("@****%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%%%%-.--:*#*=-:---+#%@#=@@@@*##########************************************#@@%%%%%@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%%@+-+-*====---=*%@@@%@@@#**#********************************************#@@%%%%%@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@%@%%%+.-*+==---==*%@@@@@@@@*###********************************************@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@%%%%%@%*:%=--*@@%##@@@@@@@@@@@@@%**##******************************************@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%%%%%%%%%%%%%%%###%%%%#+-=*@++%**%%@@@@@@@@@@@@@@@@@@@#******************************************@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@-. ...=*%@%#****#**#*########**#*++++@@@**==+*@%*#@@@@@@@@@@@@@@@@@@%*++*%@@@@@@@@@@@#**********************@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@#   . :***@@%%@@@%@%@@@@@@@@@@%#@@###+*@@@@#:=+==*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@********++************@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@=:    +@#%@@@@@@@@@@@@@@@@@@@@@@@@@@##%@@@@*+=+*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#**+++*++++++**+++*@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@-.  :#@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@%**%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##++*+**+++*++++*@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*++++++++++++#@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+*@@@@@@%@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*+++++#@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@%%@#@@+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@%%%%*#@+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@@@@@%%@@@@@@@%%%%%%#%@+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@#%@@@@@@@@%%%@%%@%@+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@%@@@@%%%%*%@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@%@#%@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("====*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@%##%%@@@##@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%@@%@@@@@@@%%%%@@@@@@%#@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#**")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@% +@@    -@+   =@*   =@.-@@@ :@@ *     *    -@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+===:..::-==")
-    print("@@@@@@@@@@@@@**%%#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ : %@ .%= @. +@@* #@@ @.-@@@ -@@ #%# =@@ -%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*--=+-..::--=+*%")
-    print("@@@@@@@@@@@@@#*%@@*-:#@@@@@@@@@@@@@@@@@@@@@@@@@@: *  @ :@# #@@% .+ #@@ %.-@@@ -@@ *## =@@ =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@====+=..::-==+#%%")
-    print("@@@@@@@@@@@@@%#%@@@-+@@@@@@@@@@@@@@@@@@@@@@@@@@* @@@ +  . -%+ : =@*.. =@. . =* . -@#* =@@    =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+====+:.::--=+*%%%")
-    print("@@@@@@@@@@@@@@%@@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%@@@%%@@@@@@@%@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+===+=.::-==++%%%@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@#**%@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@%@%@@@@%%@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@++++++-.:-==++*%@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@#         .@@@@%    @@@.    @@@@@%#   -@@@            :@@     +@@@@@@@@.     @@@@@@@@    -@@@@@@@@++++*+:.--==+**%@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@.   .*#*=    #@@%    @@@.     %%%%@%   -@%@    ========*@@      %@@@@@@=      @@@@@@@-     *@@@@@@@++++*=::-==++*#@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@:   +@@@@@@    @@%    @@@.      @%@%%   -@%@    @@@@@@@@@@@      :@@@@@@       @@@@@@%       @@@@@@%+++**-::-==+**%@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@    @@@@@@@@%%%@@%    @@@:   .   *@%%   -@@@    @@@@@@@@@@@   :.  #@@@@-  =    @@@@@@   :@   .@@@@@#++**=::-==+**#%@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@#   .@@@@@@@@@@@@@%    @@@:   @=   *@%   -@@@           *@@@   -#   @@@#   @    @@@@@:   %@%   +@@@@@+***-.:-=++**#@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@%   .@@@@@@@@@@@@@%    @@@.   @@+   =%   -@@@    .......%@@@   :@-  .@@   %@    @@@@*   -@@@-   @@@@@#**#::--=+**#%@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@%    @@@@@@@@@@@@@%    @@@:   @@@*       -@@@    @@@@@@@@@@@   :@@   *:  =@%    @@@@            .@@@@@**#-:-==++*#@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@:   =@@@@@@    @@#    @@@.   @@@@%      -@@@    @@@@@@@@@@@   .@@#      @@%    @@@-             -@@@@**#=--+*+*##@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@.    -==:    %@@%    @@@.   @@@@@@     -@@@    :..:::..+@@   .@@@-    #@@%    @@*   :@@@@@@@    #@@@*#%=-=*#**##@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@%         =@@@@%   .@@@:   @@@@@@@    -@@@            :@@   .@@@@   -@@@%    @@    %@@@@@@@@   .@@@*#%==*###*#%@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###%=+**##@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%%%*+**%@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##%@#+*#@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%%@%*##@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%@@%*#@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@#%@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@#@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@")
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     global king_activate
     global op_tower
     king_activate = True
@@ -160,33 +140,103 @@ def fire_king():
         print("Invalid Input. Must be a number 1-4.")
         fire_king()
 def log_cycle():
+    global op_tower
     print("\nYou play the log to cycle your cards. What do you do?")
     print("1. Fireball the Towers")
-    print("2. Place Baby Dragon in the back")
-    print("3. Play Inferno Dragon on the Bridge")
-    print("4. Wait for your opponent to play and spam chicken emotes")
+    print("2. Push with Inferno Dragon")
+    print("3. Play Baby Dragon in the back")
     choice = input(">>>")
     print()
     if choice == "1":
+        cinema()
         fire_king()
     elif choice == "2":
-        print("")
+        if king_activate == True:
+            print("It would've worked, but you activated the King Tower by fireballing it so you only get chip damage.")
+            op_tower = op_tower - 500
+            print(op_tower)
+            final_minute()
+        else:
+            print("Your opponent can't defend the dragon and you get a lot of damage on the tower.")
+            op_tower = op_tower - 2000
+            final_minute()
     elif choice == "3":
-        print("")
-    elif choice == "4":
-        print("")
+        baby_dragon()
     else:
-        print("Invalid Input. Must be a number 1-4.")
+        print("Invalid Input. Must be a number 1-3.")
         log_cycle()
+def baby_dragon():
+    global op_tower
+    print("\nWhat do you back the Baby Dragon up with?")
+    print("1. Inferno Dragon")
+    print("2. Prince")
+    print("3. Nothing, let it alone")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("Your opponent uses a rocket and destroys your push.")
+        final_minute()
+    elif choice == "2":
+        print("Your opponent tries to defend Prince with a skarmy, but the baby dragon takes it out quickly and you get good tower damage.")
+        op_tower = op_tower - 2500
+        final_minute()
+    elif choice == "3":
+        print("The Baby Dragon does next to no damage on its own.")
+        op_tower = op_tower - 200
+        final_minute()
+    else:
+        print("Invalid Input. Must be a number 1-3.")
+        baby_dragon()
+def mega_knight():
+    print("\nHe places a Mega Knight. What do you do?")
+    print("1. Place a cannon to distract")
+    print("2. Play Inferno Dragon on the Mega Knight")
+    print("3. Push Skarmy on the other lane")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("You place a cannon to distract the Mega Knight.")
+        mk_cannon()
+    elif choice == "2":
+        mk_inferno()
+    elif choice == "3":
+        mk_skarmy()
+    else:
+        print("Invalid Input. Must be a number 1-3.")
+        mega_knight()
+def inferno_counter():
+    global op_tower
+    global my_tower
+    print("The cannon distracts both cards long enough for your inferno dragon to mostly defend, but your tower still takes damage. The Inferno Dragon gives you a counterpush.")
+    print("\nWhat do you back it up with?")
+    print("1. Baby Dragon")
+    print("2. Prince")
+    print("3. Freezing the tower")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("Your opponent tries to distract with a skarmy, but the baby dragon easily takes them out. You get good damage on the tower.\n")
+        op_tower = op_tower - 2000
+        final_minute()
+    elif choice == "2":
+        print("Your opponent places a skarmy and easily counters.\n")
+        final_minute()
+    elif choice == "3":
+        print("Your opponent distracts the inferno dragon with a skarmy, and then the skarmy gets chip damage on your tower.")
+        my_tower= my_tower - 200
+        final_minute()
+    else:
+        print("Invalid Input. Must be a number 1-3.")
+        inferno_counter()
 def mk_cannon():
     global my_tower
     global op_tower
     my_tower = my_tower - 500
-    print("\nThe cannon distracts the Mega Knight long enough for the tower to only take a few hits. You suspect the opponent has no elixer. What do you do?")
+    print("\nThe cannon distracts the Mega Knight long enough for the tower to only take a few hits. You suspect the opponent has no elixir. What do you do?")
     print("1. Push with Inferno Dragon")
     print("2. Push with Skarmy")
     print("3. Push with Prince")
-    print("4. Wait to build more elixer before pushing.")
+    print("4. Wait to build more elixir before pushing.")
     choice = input(">>>")
     print()
     if choice == "1":
@@ -200,7 +250,7 @@ def mk_cannon():
             op_tower = op_tower - 2000
             final_minute()
     elif choice == "2":
-        print("He didn't have a lot of elixer, but he had a little. Your push gets ruined by a single log.\n")
+        print("He didn't have a lot of elixir, but he had a little. Your push gets ruined by a single log.\n")
         final_minute()
     elif choice == "3":
         prince_push()
@@ -213,16 +263,16 @@ def mk_inferno():
     global my_tower
     my_tower = my_tower - 500
     print("The dragon kills the Mega Knight in a decently short time, but there was nothing distracting it, so it gets a few hits on the tower.\n")
-    print("Mega Knight costs 7 elixer, so you should be able to play something.")
+    print("Mega Knight costs 7 elixir, so you should be able to play something.")
     print("1. Push with Prince")
     print("2. Push with Skarmy")
-    print("4. Wait to build elixer")
+    print("3. Wait to build elixir")
     choice = input(">>>")
     print()
     if choice == "1":
         prince_push()
     elif choice == "2":
-        print("He didn't have a lot of elixer, but he had a little. Your push gets ruined by a single log.\n")
+        print("He didn't have a lot of elixir, but he had a little. Your push gets ruined by a single log.\n")
         final_minute()
     elif choice == "3":
         tower_rocket()
@@ -262,7 +312,7 @@ def prince_push():
     op_tower = op_tower - 2000
     global my_tower
     print("Prince is the best and most balanced card. Your opponent's tower takes massive damage.\n")
-    print("Your opponent tries to get you back with a goblin barrel. You have almost no elixer. What do you do?")
+    print("Your opponent tries to get you back with a goblin barrel. You have almost no elixir. What do you do?")
     print("1. Play Log on the goblins")
     print("2. Let the tower take care of the goblins")
     choice = input(">>>")
@@ -281,12 +331,12 @@ def tower_rocket():
     global my_tower
     global op_tower
     my_tower = my_tower - 600
-    print("As you build more elixer, so does your opponent. He rockets your tower\n")
-    print("Rocket costs 6 elixer, so he has to be low. What do you do?")
+    print("As you build more elixir, so does your opponent. He rockets your tower\n")
+    print("Rocket costs 6 elixir, so he has to be low. What do you do?")
     print("1. Push with Baby Dragon")
     print("2. Push with skarmy")
     print("3. Fireball the towers")
-    print("4. Wait for more elixer again")
+    print("4. Wait for more elixir again")
     choice = input(">>>")
     print()
     if choice == "1":
@@ -310,7 +360,7 @@ def tower_rocket():
 def final_minute():
     global op_tower
     global doubt
-    print("\nYou enter the last minute of the game, and 2x elixer activates. No towers have been taken yet. What do you do?")
+    print("\nYou enter the last minute of the game, and 2x elixir activates. No towers have been taken yet. What do you do?")
     print("1. Push with Valkyrie and Prince")
     print("2. Spell the tower")
     print("3. Wait for your opponent to play first")
@@ -355,7 +405,7 @@ def final_wait():
     print("\nAaaaaand he played a Mega Knight and a Pekka together somehow. How do you defend?")
     print("1. Skarmy")
     print("2. Cannon")
-    print("3. Fireball and prayers")
+    print("3. Evo credit card")
     print("4. Accept the Defeat and send a 'good game!' emote")
     choice = input(">>>")
     print()
@@ -367,18 +417,14 @@ def final_wait():
         my_tower = my_tower - 2000
         if my_tower <= 0 and doubt > 0:
             print("The Pekka takes your tower and your opponent sends a chicken emote.\n")
+            ending_2()
         elif my_tower <= 0:
             print("The Pekka takes your tower and your opponent sends a chicken emote.\n")
+            ending_3()
         else:
             universal_final_play()
     elif choice == "3":
-        print("You fireball the troops and pray. It takes about half of their health. You have no elixer and your towers are doomed.\n")
-        if doubt > 0:
-            ending_2()
-            return
-        else:
-            ending_3()
-            return
+        secret_ending_3()
     elif choice == "4":
         doubt = doubt + 1
         print("You can't give up when you came this far. You must keep pushing. You must reach 10k trophies or your life will have no meaning. You place a skarmy behind the Pekka and hope it works.\n\nIt somehow works and distracts both troops long enough to not take damage. Your opponent must be fuming.")
@@ -409,7 +455,7 @@ def universal_final_play():
             ending_5()
             return
         else:
-            print("But it's not enough. The tower is till hanging on by a thread and you are out of elixer. The opponent plays evo goblin barrel and freezes the tower.\n")
+            print("But it's not enough. The tower is till hanging on by a thread and you are out of elixir. The opponent plays evo goblin barrel and freezes the tower.\n")
             if doubt > 0:
                 ending_2()
                 return
@@ -444,7 +490,7 @@ def universal_final_play():
                 ending_3()
                 return
         else:
-            print("Your opponent runs out of elixer and you are free to place one prince and take the tower.\n")
+            print("Your opponent runs out of elixir and you are free to place one prince and take the tower.\n")
             if doubt > 0:
                 ending_4()
                 return
@@ -482,23 +528,23 @@ def encounter():
         print("Invalid Input. Must be a number 1-4.")
         encounter()
 def ending_1():
-    print("You play Clash of Clans.")
+    print("\nYou play Clash of Clans.")
     print("Ending 1 of 5: Worst Ending\n")
 def ending_2():
-    print("Your opponent spams the laughing emote as you have to watch yourself get 3-Crowned no diff. You will never psycologically recover from this game. Why DO we Clash?")
+    print("\nYour opponent spams the laughing emote as you have to watch yourself get 3-Crowned no diff. You will never psycologically recover from this game. Why DO we Clash?")
     print("Ending 2 of 5: Crashout\n")
 def ending_3():
-    print("You let out a huge sigh as your opponent somehow edges out a win. But if you play ONE more game, you'll come back.")
+    print("\nYou let out a huge sigh as your opponent somehow edges out a win. But if you play ONE more game, you'll come back.")
     print("Ending 3 of 5: Denial\n")
 def ending_4():
-    print("You won, but what does it matter? You will only lose a thousand more games. You would dwell on this thought, but you fingers already clicked the 'play again' button. Eh, one more game.")
+    print("\nYou won, but what does it matter? You will only lose a thousand more games. You would dwell on this thought, but you fingers already clicked the 'play again' button. Eh, one more game.")
     print("Ending 4 of 5: Doubt\n")
 def ending_5():
-    print("LOOOL GGS TOO EZ THIS IS THE BEST GAME EVER")
+    print("\nLOOOL GGS TOO EZ THIS IS THE BEST GAME EVER")
     print("Ending 5 of 5: Pride\n")
 def secret_ending():
-    print("You decide that is enough screwing around with your life. You delete Clash and you invest in your future. You grow up to marry your soulmate and have 3 children who live with you in your mansion.")
-    print("Secret: Best Ending\n")
+    print("\nYou decide that is enough screwing around with your life. You delete Clash and you invest in your future. You grow up to marry your soulmate and have 3 children who live with you in your mansion.")
+    print("Secret Ending 1: Best Ending\n")
 def secret_ending_2():
     print("****###********####*+-::-*####*##%%%*#%%####**#%##%%%%%%%%#####*+:...:--==+*#=+#####*++**#%%@@@#%@@@")
     print("****#%%%@@@@@%#####%%*-+###%#**%%%%%#*%####%######%%%%%%%%%%####*+:=#@%***###%#%%#%@%###*#%@@##**#%#")
@@ -550,12 +596,155 @@ def secret_ending_2():
     print("%#*=+*#####%%%%%%%%@@@%%%%%%@@@@@@@@@@@@@@@@%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@")
     print("%#*=*######%%%%%%%%%@@@@%%%%%%@@%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@@@@@@@@@")
     print("%#*+*####%%%%%%%%%%%@@@@@%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    print("%#*+*#####%%%%%@%%%%@@@@@@@%%@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("%#*+*#####%%%%%@%%%%@@@@@@@%%@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")
     print("Siiix Seeeveeeeen. That's a real emote you can get in the game now.")
     print("Ending 6 of 7: 6 7\n")
+def secret_ending_3():
+    print("%%%%%%@@@@@@@@@@%%%%%%%%%%%#############*##########%%#%%%%%%%%%%#############################*###%%%%%%%%%%%%%%%#*********##################%%%%%%%%%%")
+    print("%%%%%%%%@@@@@%%%%%%%%%%%#####********######**************************************************************************************#############%@@%%%%%")
+    print("%%%%%%%%%%@%%%%%%%%%%%%###******###*++++++##+*+++++++++++++++++++++++++++++++++++++++++++++++*********++++**++****++++++***********#############%%%%%%")
+    print("%%%%%%%%%@@%%%%%%%%%%###*****##*++++++++++*%##############################%######################################%%%%%%%%%%%%##*+***#############%%@%%")
+    print("%%%%%%%@@@@@@%%%%%%%####***##*++++++++++++*#####################**#**##**########*##########################*****######*#%@@%%%%*+**###############%@%")
+    print("%%%%%@@@@@@@@@@%%%%###***##++++***+++====++*#.                   .=---::...       .::                                      .*@%%%*****###############%")
+    print("%%@@@@@@@@@@@@@@%%%##***#*+*+-:.....:-*===+*#+.  ....::-:. .  ..:-=----:::... ..::::.                                        -%@%#****########**###%%%")
+    print("%@@@@@@@@@@@@@@@@@%##*#**++*.         =+-=++*#: .:-===*+:....:===-===----::..::---:.            ........................ ..   =@@%#****##########%%@%%")
+    print("@@@@@@@@@@@@@@@@@@@%##*+*+#=   .*#=   .*--=++#*==-=*%#+-=::=-:::-:====------:-====: ..........................................-@@@#+***#####**#%%%%%@@")
+    print("@@@@@@@@@@@@@@@@@@@%##*+++#:   .--.   .+--=++*#+-+@@*++=:=::::::::-=+===-==---===- ...........................................-@%%#*****#####%@@%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%#*++**#:          .+===+++#+-#@#*+==-::.:...::--++++===+=---=: ...........................................-@%%#****####%@%%@@%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@##***+*#%%#**++:   .+==++++##-#%##-==--:::....:::=*+*+++++===-:............................................-@%%#+****#%@%@@@%%@%%%%")
+    print("@@@@@@@@@@@@@@@@@@@##*******#**=-.    .*++++++#*-*%%=+==-----:::::::-*****++++++===...........................................-@%%#+**##%@%%@%%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%%*****+*+.  . ...-*#+++++*#*=+%+++====----::::::-=#####******+===:........................................-@%%#+*##%%@%@%%%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%%##****##+++*#%%###*++++*%#*+=++++=======---------=#%###***####+=++-:.....................................-@%@#+*##%%%%@%@%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%####****#####***+++++*+*#%#%##++++=========--------=#%%%%%####%%%*++*===-::::.............................-@%%#+*##%%@%%%%%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%#######*************+*##%%%%%%**+++++=========-------*%%%%@%%%#%%%%#+==+=-----::::........................-@%%#+*##%%@%%%%%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%%#**#%%##************##%%%%#@%***+++++++======------=-+%%@%@@%%%%%%**##+-::::-------:.....................-@%%#+*##%%@%%%%%%%@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%%#*+%%%%#%##******###%%%%%%%%%******++++++=======-=====+%@@@@@@@@%+*###+=----=--------:...................-@%%#**#%%%@%%%%%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%%#*+%@@#+++++*##*##%%%%%########******++++++**+++====++++#@@@@@%#**#%#**++=======---:---:.................-%%%#**#%%%@%%%%%%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%%#*+#@@#===--+%%#%@@@%%####*+*#######********##***#%@@@@@@@%%%%%@@%##*****++========----=-:...............:%%%#**##%%@%@%%%%%%@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%##*+#@@#+===+%%%@@@@@%%#+++++##%%##########*#%@@@@@%+=---=+%@@@@@%#*+++*****+++===++==---==:.=:...........:#%%#+*##%%@%%@%%%%@%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%#**+#@@#+=++*%#%@%%%%##++*#***%%##########%@@@@@@@%*+#%@@@%##%%%##***+==+*##**++++++++==--==.-==-:........:*%%#+*##%%@%%@%%%%@%%%%")
+    print("@@@@@@@@@@@@@@@@@%%##**+#@@#====####@%%###**#**##%%%##########@@@@@@##%%%@@@@@@##########%%#*+=*##**++++++++====-++++++++==----*%%#+*##%%@%@@%%%%@%%%%")
+    print("@@@@@@@@@@@@@@@%%%%##**+#@@#=+#%%%**#@%###*####*#%%%%#########@@@#*#%%%%%@@@@@%%%%#####%@#-:-*%#+*#***++++++++***####**++====-=%@%#+**#%%%@@@%%%%@%%%%")
+    print("%%@@@@@@@@@@@%%%%%%##**+#@@#*#*##%***@%%#*+%%%#**%%%%%%%%%%%#%%*+*#@@%%%@@@@@#%%%%%####%@#---:=%%#*********#****###%%%%%%###*++%%%#*****#@@%@%%%%@%%%%")
+    print("%%%%@@@@@@@%%%%%%%%##**+#@@#==++*%*++%%###*+####%%%%%%%%%#%%###=.:-@@%%%@@@@%%%%%#####%@@@@##%@%#####**############%%%%%%###**+#%%#+****##%@@%%@@%%%%@")
+    print("%%%%%%@@@%%%%%%%%%%##**+%@%#==+++#*+=*#####%%%%%%%%%%*===--*%@#+..:%@%%@@@@@%#######*#%%%#******##%##*##***+++***#@@%%%%%###***#%%#+***#####%@@%@@%@@@")
+    print("%%%%%%@@%%%%%%%%%%%##**+%@%#+++++*+=+*##%%%%%%%%%%*=------+++#**-::*@@@@@@@%#####*###*****######%@@@#*#+-::=#**#*%#%%%%%%##**++#%%#+****#####%%@%%@@@@")
+    print("%%%%@@@@@@@%%%%%%%%##***%@%*++++++++**#%%%%%%%%%*------====--*##=::=@@@@@@%###***********######%@@@%#**#--+%#++*-.. ..........-%%%#+***########%@%@%%%")
+    print("%@@@@@@@@@@%%%%%%%%##***%@%*++++++++*##%%%%%%#+-=--=========--###::-%@@@%%%###************#*##%@@%#****%@@%*#%:-*=............-@%%#+***##########%%%%#")
+    print("@@@@@@@@@@@@@%%%%%%##***#%%*++++++++*#%%%%%#+=============++++#%#+-:+@@@%%###****************%@%%#****+#@#+#@#-.+*-...........-@%%#+***#########%%@%##")
+    print("@@@@@@@@@@@@@@@%%%%%#**+%%%*++++++++*#%%%%#+=+*+========+++++*%%%@*::-#@@%###***************%@%%#****+*+*#%@%*=:-*=...........-@%%#+***#######%@@@@@%%")
+    print("@@@@@@@@@@@@@@@@@%%###**%@%#++*+++++*##%#=*##+=+====++++++++++#%%%%%+::-%@##*********#*##**#@@%#+*****+*%@@#+==-=+=...........-@%%#+***#####%@@%%%%@@@")
+    print("@@@@@@@@@@@@@@@@@@%%#**+%@@#++++++***#*=-=+++++==+++++++++++++#%%@@@%%=:-+@%#**#*#########%%@%#*******%%#+-=====+==...........-@%%#+***###%@@%%@@@@@@%")
+    print("@@@@@@@@@@@@@@@@@@@%#***%@@#++++**++***+=+**+++++=+++++++++++*%%@@@@%%@*::-*@@%######+:::=*#%#%%%%#*+====----+*+==-...........-@%%#****#%@@@@%@@%%%%@%")
+    print("@@@@@@@@@@@@@@@@@@@%#***%@@#+++++++++++++****++++=+++=+++=+*+=-+%@@@@@@@%=:--%@@@%###%%#+:.:----:--------:=*#*+==-............-@%%#***#%@@@%@%@%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@@%##**%@@#++++++++++=++*#***+++++++==--==++++++-=#@@@%@@#=-=*@%#%%%@@%%@%#+=-::-----=*%%%##*+=:.............-@%@#+*##%@@%@%%@%%%%%%%")
+    print("@@@@@@@@@@@@@@@@@@%%%#**%@@#++++++++++==+*##***+++++#*-.....:=++++++=+%@%@%%*==+%@@@@@@@@@#++++++*##****#%#*+=:...............-@%@#+*##%%@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@%%%#**%@@#++++++++++===+#%##+-....*@%%=:..:.:++++**++#@@@@%#+++%@@@@@%=:==-:::--==:-=--:-=:.................-@%@#+*##%%@@@@@@@@@@@%%")
+    print("@@@@@@@@@@@@@@@@@@%%%#*+%@@#+++++++++++===+%%+::......%@#-::-::.=******=+%%%@%%***#@@@%:--:-:::::--:-==-=+=:.. ...............-@@@#+*##%%@@@@@@@@@@@%%")
+    print("@@@@@@@@@@@@@@@@@@%%%#**%@@#+++++++++++===+*%@%*=--:...:::-----:..-==+**++%@@@%@##@@@%=:-:::::::::::::-=+::---................-%%%#**##%%@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@%%%#**%@@#+++++++++++*+=-:.*@@%*=-:---===-::::...---++++=#@@@%@@%###*--::::::::-----:-:=+--.................-%%%#**##%%@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@%%%#**%@@#++++++++++*##+=-:.:%%*=======-:=%#*+:...==:+***=*@@%#*#%@@%+--::::::::::::---::=-.................-@%%#**##%%@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%##*+%@@#++++++++##%%##++=--:-===++++:-**++*+:......=+***+*###%@@%%%%+--:::::::::::-----:-+-...............-@%@#+*##%@@@@%%%%%@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%#**+%@@#++++**#%%%%%###*+=+++++++*=:=#+==+*+:::.:.*#+-=***#@@%%%*+#%%*=--:::::::::-------:-++-:...........-@%@#+*##%@@@@%%%%%@@@@@")
+    print("@@@@@@@@@@@@@@@@@@%%#**+%@@#++*#%%%%%%#*++*%###***+*+--**===+**+-=-==-::-*+:--=#@%+:-=+#@@%*=---:::::::--------::-==+-........-@%@#+*##%@@@@%%%%%@@@@@")
+    print("@@@@@@@@@@@@@@@@@%%%#***%@@#*#%%@@%#*++++++*%%%###*=-=#+====+**+-=-+-+-*#*+++#+-=::::--=*%@@@%*=::--:::---------:::...........-@%@#**#%%@@@@%%%%%@%%%%")
+    print("@@@@@@@@@@@@@@@%%%%##***%@@##%%%#*++++++++++*%@%%#==*#+++===+**+===+=*+%%#*-..-*%*--:.::-=*%@@@@@%*-:-::------::::::..........-@%@#**#%%@@@@%%%%%@%%%%")
+    print("@@@@@@@@@@@@%%%%%%%%#***%@@###**++++++++++++**#@%++#*+++++++***+++*++###%#-.......+#*-::::--=*#@@@@@#-::----::::::--..........-@%@#**#%%@@@@@%%%%@%%%%")
+    print("@@@@@@@@@@@%%%%%%%%%#***%@@#**++++++++++++++++*#*+##+++++++**#*+***+*++#%*-...::-:-===--=-.::-=+*%@@%%=-::::::::::=-:.........-%%@#+*#%%@@@@@@@@@%%%@@")
+    print("@@@@@@@@@%%%%%%%%%%%#***%@@#+***+++++++++++*++**###**++++**#*#****#*#**+++==---=+*#**+++=::...:-=+#@@%%+--:::::::-===:........-@@@#***#%@@@@@@@@@%%%@@")
+    print("%@@@@@@%%%%%%%%%%%%%#***%@@#++*****++++++++++*+*####*******##%+##%*##++++++===-=*=###+::*.=:::::-=*#@@@%*-::::::--==+=--.. ...-@@%#***##%@@@@@@@@%@@@@")
+    print("%%@@@%%%%%%%%%%%%%%##**+%@@#+++**##***+++++*+++*%%**####*###%#*###*%##=:-+*++===+#*++-:.*:=:.::::-=*%@@%@*::.::::-==+++==-::..-@%@#+**###%%@@@@@%%%@@%")
+    print("%@@@@%%%%%%%%%%%%%%##**+%@@#+++++*##*****++++**##*#@*+#%%%%%%*##%#*%%##*=:-+*++=+=*#%*--#-+-:::::--=#%@@@@#:...::-==+****++==--%@@#+**#####%@@@@@@@%##")
+    print("@@@@@@@@%%%%%%%%%%%##**+%@@#++++++*###****++*##++++**#%*#%@@%*#%%%*@@%%#*+++*+++++*++***#=*-..::.::-*#%@@@%%-..:--==+*#%%%%%##*%%@#+**######%%@@%%####")
+    print("@@@@@@@@@%%%%%%%%%%##*++%@@#++++++++**##*+*##**+++++++**%@%%%#%%%%##%@%%#*********++***#++#+*-....:=*#%@@@@%%=::-===+*#%%%%%%%%%@@#+**#######%@%%#####")
+    print("@@@@@@@@@@@%%%%%%%%##*+*%@@#+++++*+++**####**+*++++++++****%%%%%@@@%*#%%###*####+::=**##+#*#*#*:..-+*#%@@@@@%@+--===++#@%%#####@@@#+**#####%@@@@%%####")
+    print("@@@@@@@@@@@@%%%%%%%##***%@@#+++***+++++*###****+++++++++++++*#%%%@@@@%#*######%%#*+:.=#**#*@%#**-.-+*#%@@@@@@@@#====++-. . ...-@@@#+**###%%@%%@@@@%%##")
+    print("@@@@@@@@@@@@@@%%%%%##***%@@#++++****+++++**##********+++++++***#%@%@@@@%#**#%#%%%#+==--+%#%@@%#**+:=*#%@@@@@@@@@#=+=+:... ....-@%@#+**##%@@@@@@@@@@@%#")
+    print("@@@@@@@@@@@@@@@@%%%##***%@@#+++********++++*##******+*++++++****#%%@@@@@@@#*#%@@@%%%%#*%#%@@@@@#***-+#%@@@@@@@@@@%=-..........-@%@#+*#%%%@@@@@@@@%%@@@")
+    print("@@@@@@@@@@@@@@@@@%%%#***%@@#+++*********+++++*###*****++++*+***##%%%%@@@@@@@%##%@%#%%*#%#@@@@@@@#***=%@@@@@@@@@@@@#...........-@%@#+*#%%@%%@@@@@@@@@@%")
+    print("@@@@@@@@@@@@@@@@@@%%#***%@@#++++******+**+++==+******++++**+***#%%%%%%%@@@@@@@@%#%%%##%%@@@@@@@@%#*#+#@@@@@@@@@@@@@*..........-@@@#**#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%#***%@@#++++******+****++===+**********+**##%%%%%%%%%%@@@@@@@%#*#%%@@@@@@@%%%%#**#@@@@@@@@@@@@@@-.........-@%@#**#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%%#**%@@#++++************++===+**********##%%%%%%%%%%%%%%%@@@@@@%@%@@@@@@@%%%%%##*+%@@@@@@@@@@@@@+.........-@@@#**#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%%#**%@@#++++***************+===+****######%%%%%%%%%%%%%%%%%%######@@@@@@@@@%%%%#+. .*@@@@@@@@@@@+.........-@@@#**#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%%#**%@@#++++***********++***++===+*##%%###%%%%%%%%%%%%%%%%%%%%%###*#%%@@@@@@@%%#-.....=#@@@@@@@*..........-@@@#**#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%##**%@@#+==++*++************+**=--=+*###%%%%%%%%%%%%%%%%%%%%%%###**#**#%%@@@@@%+..........:::.............-@@@#+*#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%%#*+%@%%+=-=+++******************+=--=+**###%%%%%%%%%%%%%%%%%######*##%##*=::.............................=@@@#+*#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@%##*+#@@%=.. :++**+*******************+++++++**##%%%%%%%%%%%#######*#%###*-................................*@%%***#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@%%##***#%%@+..:::-::::::::::::::::::--------:-::::::-====----------------:. ..............................:*@%@%***#%%@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@%%%%###***#%%@%*=-------:::::::::::-------------------::::::::------------:. ...........    ...  .........-+%@%@%***#%%@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@%%%%%%%%##***##%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@#*+*#%%@@@@@%@@@@@@@@@@")
+    print("@@@@@@@@@@@%%%%%%%%%%%%##**+*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#***##%%@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@%%%%%%%%%%%%%%###*********************+++++++++++++++++++++++++++++++++++++++++++++++++**+++++++++*****++++++++++++***#%%%%@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@%%%%%%%%%%%%%%%%%%%#####*********************************************************************************************####%%@@@@@@@@@@@@@@@@@@@\n")
+    print("You jam $500 into your phone and play Evil Pekka Barrel, which instantly three-crowns your opponent and hardware bans them from the game. You win.")
+    print("Secret Ending 3: Degeneracy")
+
+
+
+def cinema():
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@#.-%@:-+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@+.:#@-=+@@@@@@#+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@%%@*.:*@-.:*@@@@*.-%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("% .%#  :@-..=@@@@::+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+%@@@@=+#@@@@@@@@")
+    print("%..+%  .%=  =@@@=.:*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*-+%@@@-=*@*=%@@@@")
+    print("@  :#.  *+  =@@*.:=%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-=+%@@--+%%-*@@@@")
+    print("@.  *:  #+  *@@:.-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%#*+*=-=*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*:=*%@-.-#@-=@@++")
+    print("@+  :.    ...::-=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+.  .:---:==-+*%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%-:-*@+.:+@.:%%++")
+    print("@*.      .:..:-=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= .: :-==+*+**+**#*#%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*.:-==----=+@@++")
+    print("@-. ....::::=+=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= .....:-=++*###%@@@@##%@@@@@@@@@@@@@@%%%%%%%%%%@@@@@@@@@@@@@@%@@%@+ ....-:.:=:=%@")
+    print("@-  .. .::-----=*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#  ..  .:-==++****#%@@@@@%%@@%%%@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%#+=+#%%--::+=.   .=-+")
+    print("@+...:::.::::-:::::::-+*#%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=      ..:-==++===++*#%@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%:=****#@@*-=@%:.    .=")
+    print("@#:.:::..:::::.:-:=#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=   . . .:---===--==+*#@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@%@@@@@@@@@%@%%  -...")
+    print("@=. ..::.::-::--=%%*====*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%       .:-+++++++**#%@@@@@%%@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@%###*+=+*@+:  .=")
+    print("@@-:.::.:::---==+*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*   :.    :--+=:---=++##%@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+=+**+-#@@+. -#")
+    print("@@---==-----=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#   . .-*%%%#*+-+*%@@@@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%#%#++#%%@++.+@")
+    print("@@-:::::-=+*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%    .+#**####=-*@@####@@@@@@@%##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%####%#%#***+*@%%#=%@")
+    print("@%:...:-=-*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*    -#%%@@%*=:-=@@==*%@@@@@@@@####################%%%%%%%%%%%%##########+=*+*+*-=+%@")
+    print("@#:....-=+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-   :=:===*+=-:=%@@++*%@@@@@@%###########################################+*=--..==#@")
+    print("@= . .:-=+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#- :.  :=*#%=-=  :-@@*+***#@@@@%*##########################################*- :--+#@@@")
+    print("%+=**##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%=-. .:-=++--=. ::+@@@%**#@@@@@############################################%@@@@@@@@@@")
+    print("*%***##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%:- .:-*=:=*==##@@@@@@@@%@@@@@#############################################@@@@@@@@@@")
+    print("*@+**##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%*..::-:-++=-:-==+#@@@@@@@@@@@*####################################################%@")
+    print("#@***##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@.. .:-+=====+*#%@@@@##%@@@%######################***********#########****#@%%%@@@@@")
+    print("@****%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%%%%-.--:*#*=-:---+#%@#=@@@@*##########************************************#@@%%%%%@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@%%@+-+-*====---=*%@@@%@@@#**#********************************************#@@%%%%%@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@%@%%%+.-*+==---==*%@@@@@@@@*###********************************************@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@%%%%%@%*:%=--*@@%##@@@@@@@@@@@@@%**##******************************************@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%%%%%%%%%%%%%%%###%%%%#+-=*@++%**%%@@@@@@@@@@@@@@@@@@@#******************************************@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@-. ...=*%@%#****#**#*########**#*++++@@@**==+*@%*#@@@@@@@@@@@@@@@@@@%*++*%@@@@@@@@@@@#**********************@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@#   . :***@@%%@@@%@%@@@@@@@@@@%#@@###+*@@@@#:=+==*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@********++************@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@=:    +@#%@@@@@@@@@@@@@@@@@@@@@@@@@@##%@@@@*+=+*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#**+++*++++++**+++*@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@-.  :#@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@%**%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##++*+**+++*++++*@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*++++++++++++#@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+*@@@@@@%@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*+++++#@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@%%@#@@+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@%%%%*#@+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@@@@@%%@@@@@@@%%%%%%#%@+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@#%@@@@@@@@%%%@%%@%@+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@%@@@@%%%%*%@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@%@#%@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("====*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@%##%%@@@##@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@%@@%@@@@@@@%%%%@@@@@@%#@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#**")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@% +@@    -@+   =@*   =@.-@@@ :@@ *     *    -@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+===:..::-==")
+    print("@@@@@@@@@@@@@**%%#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ : %@ .%= @. +@@* #@@ @.-@@@ -@@ #%# =@@ -%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*--=+-..::--=+*%")
+    print("@@@@@@@@@@@@@#*%@@*-:#@@@@@@@@@@@@@@@@@@@@@@@@@@: *  @ :@# #@@% .+ #@@ %.-@@@ -@@ *## =@@ =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@====+=..::-==+#%%")
+    print("@@@@@@@@@@@@@%#%@@@-+@@@@@@@@@@@@@@@@@@@@@@@@@@* @@@ +  . -%+ : =@*.. =@. . =* . -@#* =@@    =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+====+:.::--=+*%%%")
+    print("@@@@@@@@@@@@@@%@@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%@@@%%@@@@@@@%@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+===+=.::-==++%%%@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@#**%@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@%@%@@@@%%@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@++++++-.:-==++*%@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@#         .@@@@%    @@@.    @@@@@%#   -@@@            :@@     +@@@@@@@@.     @@@@@@@@    -@@@@@@@@++++*+:.--==+**%@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@.   .*#*=    #@@%    @@@.     %%%%@%   -@%@    ========*@@      %@@@@@@=      @@@@@@@-     *@@@@@@@++++*=::-==++*#@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@:   +@@@@@@    @@%    @@@.      @%@%%   -@%@    @@@@@@@@@@@      :@@@@@@       @@@@@@%       @@@@@@%+++**-::-==+**%@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@    @@@@@@@@%%%@@%    @@@:   .   *@%%   -@@@    @@@@@@@@@@@   :.  #@@@@-  =    @@@@@@   :@   .@@@@@#++**=::-==+**#%@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@#   .@@@@@@@@@@@@@%    @@@:   @=   *@%   -@@@           *@@@   -#   @@@#   @    @@@@@:   %@%   +@@@@@+***-.:-=++**#@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@%   .@@@@@@@@@@@@@%    @@@.   @@+   =%   -@@@    .......%@@@   :@-  .@@   %@    @@@@*   -@@@-   @@@@@#**#::--=+**#%@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@%    @@@@@@@@@@@@@%    @@@:   @@@*       -@@@    @@@@@@@@@@@   :@@   *:  =@%    @@@@            .@@@@@**#-:-==++*#@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@:   =@@@@@@    @@#    @@@.   @@@@%      -@@@    @@@@@@@@@@@   .@@#      @@%    @@@-             -@@@@**#=--+*+*##@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@.    -==:    %@@%    @@@.   @@@@@@     -@@@    :..:::..+@@   .@@@-    #@@%    @@*   :@@@@@@@    #@@@*#%=-=*#**##@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@%         =@@@@%   .@@@:   @@@@@@@    -@@@            :@@   .@@@@   -@@@%    @@    %@@@@@@@@   .@@@*#%==*###*#%@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###%=+**##@@@@@@@@@")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%%%*+**%@@@@@@@@@@\n")
 
 print("\nYou are a high school boy who is hopelessly addicted to Clash Royale. You pull out your phone in the middle of math class because you physically can't live without it.")
 start()
-
-
-# Deck: Prince, Valk, Skarmy, Evo inferno dragon, baby dragon, fireball, log, cannon
