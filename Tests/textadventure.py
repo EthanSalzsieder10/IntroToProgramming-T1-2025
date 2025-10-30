@@ -20,7 +20,7 @@ def start():
         print("Invalid Input. Must be a number 1-3.")
         start()
 def first_play():
-    print("You load into a trophy road game. Your opponent's tower level is two above yours and they are already spamming the goblin 'mimimimimi' emote.\n")
+    print("You load into a trophy road game. Your opponent's tower level is two above yours and they are already spamming the pig shaking its butt emote.\n")
     print("The first 10 seconds pass and no one has played a card. You are leaking elixir, as is the enemy. What do you do?")
     print("1. Push Valkyrie and Prince on the bridge")
     print("2. Fireball the Towers")
@@ -32,7 +32,7 @@ def first_play():
         prince_valk()
     elif choice == "2":
         cinema()
-        fire_king()
+        fireball()
     elif choice == "3":
         split_skarmy()
     elif choice == "4":
@@ -53,7 +53,7 @@ def prince_valk():
     print()
     if choice == "1":
         cinema()
-        fire_king()
+        fireball()
     elif choice == "2":
         log_cycle()
     elif choice == "3":
@@ -68,7 +68,7 @@ def split_skarmy():
     global op_tower
     global my_tower
     op_tower = op_tower - 100
-    print("\nYour opponent feels no need to defend, and you get about a hundred damage on the tower")
+    print("\nYour opponent feels no need to defend, and you get about a hundred damage on the tower.")
     print("\nYour opponent plays lumberjack and a balloon. How do you defend?")
     print("1. Fireball and Baby Dragon")
     print("2. Cannon and Inferno Dragon")
@@ -91,33 +91,91 @@ def split_skarmy():
         print("Invalid Input. Must be a number 1-4.")
         split_skarmy()
 def start_wait():
-    global op_tower
-    op_tower += 0.0
-    print()
-    print("Your opponent plays a goblin barrel on your tower. What do you do?")
-    print("1. Play log")
-    print("2. Let the tower tank")
+    global my_tower
+    print("Your opponent plays a Sparky on the bridge. What do you do?")
+    print("1. Play Skarmy")
+    print("2. Play Cannon")
     print("3. Play Valkyrie")
+    print("4. Play Prince")
     choice = input(">>>")
     print()
     if choice == "1":
-        print("")
+        print("The skarmy surround the sparky, and it is unable to attack all of them at once. The sparky is pacified quickly.")
+        sparky_counterpush()
     elif choice == "2":
-        print("")
+        print("The cannon is destroyed by the first sparky shot and the sparky gets multiple hits on the tower.")
+        my_tower = my_tower - 1000
+        emote_war()
     elif choice == "3":
-        print("")
+        print("The valkyrie tanks the first hit, but doesn't kill it in time for the second hit. The Sparky gets a hit on the tower.")
+        my_tower - my_tower - 500
+        emote_war()
     elif choice == "4":
-        print("")
+        print("The prince tanks the sparky his and takes it out in time.")
+        sparky_counterpush()
     else:
         print("Invalid Input. Must be a number 1-4.")
         start_wait()
-def fire_king():
+def fireball():
     global king_activate
     global op_tower
     king_activate = True
     op_tower = op_tower - 150
     print("You strategically place your fireball to hit the King and Princess tower. You're a genius.\n")
-    print("Your Opponent sends a laughing emote and then plays a Mega Knight. What do you do?")
+    mega_knight()
+def log_cycle():
+    global op_tower
+    print("\nYou play the log to cycle your cards. What do you do?")
+    print("1. Fireball the Towers")
+    print("2. Push with Inferno Dragon")
+    print("3. Play Baby Dragon in the back")
+    print("4. Wait for your opponent to place something")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        cinema()
+        fireball()
+    elif choice == "2":
+        if king_activate == True:
+            print("It would've worked, but you activated the King Tower by fireballing it so you only get chip damage.")
+            op_tower = op_tower - 500
+            print(op_tower)
+            minute_left()
+        else:
+            print("Your opponent can't defend the dragon and you get a lot of damage on the tower.")
+            op_tower = op_tower - 2000
+            minute_left()
+    elif choice == "3":
+        baby_dragon()
+    elif choice == "4":
+        mega_knight()
+    else:
+        print("Invalid Input. Must be a number 1-3.")
+        log_cycle()
+def baby_dragon():
+    global op_tower
+    print("\nWhat do you back the Baby Dragon up with?")
+    print("1. Inferno Dragon")
+    print("2. Prince")
+    print("3. Nothing, let it alone")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("Your opponent uses a rocket and destroys your push.")
+        minute_left()
+    elif choice == "2":
+        print("Your opponent tries to defend Prince with a skarmy, but the baby dragon takes it out quickly and you get good tower damage.")
+        op_tower = op_tower - 2500
+        minute_left()
+    elif choice == "3":
+        print("The Baby Dragon does next to no damage on its own.")
+        op_tower = op_tower - 200
+        minute_left()
+    else:
+        print("Invalid Input. Must be a number 1-3.")
+        baby_dragon()
+def mega_knight():
+    print("\nYour opponent sends a laughing emote and places a Mega Knight. What do you do?")
     print("1. Place a cannon to distract")
     print("2. Play Inferno Dragon on the Mega Knight")
     print("3. Push Skarmy on the other lane")
@@ -137,71 +195,6 @@ def fire_king():
         print("No you don't. You must keep playing. This is why we Clash. You place a cannon to distract the Mega Knight.")
         mk_cannon()
     else:
-        print("Invalid Input. Must be a number 1-4.")
-        fire_king()
-def log_cycle():
-    global op_tower
-    print("\nYou play the log to cycle your cards. What do you do?")
-    print("1. Fireball the Towers")
-    print("2. Push with Inferno Dragon")
-    print("3. Play Baby Dragon in the back")
-    choice = input(">>>")
-    print()
-    if choice == "1":
-        cinema()
-        fire_king()
-    elif choice == "2":
-        if king_activate == True:
-            print("It would've worked, but you activated the King Tower by fireballing it so you only get chip damage.")
-            op_tower = op_tower - 500
-            print(op_tower)
-            final_minute()
-        else:
-            print("Your opponent can't defend the dragon and you get a lot of damage on the tower.")
-            op_tower = op_tower - 2000
-            final_minute()
-    elif choice == "3":
-        baby_dragon()
-    else:
-        print("Invalid Input. Must be a number 1-3.")
-        log_cycle()
-def baby_dragon():
-    global op_tower
-    print("\nWhat do you back the Baby Dragon up with?")
-    print("1. Inferno Dragon")
-    print("2. Prince")
-    print("3. Nothing, let it alone")
-    choice = input(">>>")
-    print()
-    if choice == "1":
-        print("Your opponent uses a rocket and destroys your push.")
-        final_minute()
-    elif choice == "2":
-        print("Your opponent tries to defend Prince with a skarmy, but the baby dragon takes it out quickly and you get good tower damage.")
-        op_tower = op_tower - 2500
-        final_minute()
-    elif choice == "3":
-        print("The Baby Dragon does next to no damage on its own.")
-        op_tower = op_tower - 200
-        final_minute()
-    else:
-        print("Invalid Input. Must be a number 1-3.")
-        baby_dragon()
-def mega_knight():
-    print("\nHe places a Mega Knight. What do you do?")
-    print("1. Place a cannon to distract")
-    print("2. Play Inferno Dragon on the Mega Knight")
-    print("3. Push Skarmy on the other lane")
-    choice = input(">>>")
-    print()
-    if choice == "1":
-        print("You place a cannon to distract the Mega Knight.")
-        mk_cannon()
-    elif choice == "2":
-        mk_inferno()
-    elif choice == "3":
-        mk_skarmy()
-    else:
         print("Invalid Input. Must be a number 1-3.")
         mega_knight()
 def inferno_counter():
@@ -217,17 +210,93 @@ def inferno_counter():
     if choice == "1":
         print("Your opponent tries to distract with a skarmy, but the baby dragon easily takes them out. You get good damage on the tower.\n")
         op_tower = op_tower - 2000
-        final_minute()
+        minute_left()
     elif choice == "2":
         print("Your opponent places a skarmy and easily counters.\n")
-        final_minute()
+        minute_left()
     elif choice == "3":
         print("Your opponent distracts the inferno dragon with a skarmy, and then the skarmy gets chip damage on your tower.")
         my_tower= my_tower - 200
-        final_minute()
+        minute_left()
     else:
         print("Invalid Input. Must be a number 1-3.")
         inferno_counter()
+def sparky_counterpush():
+    global op_tower
+    print("\nHow do you counter-push?")
+    print("1. Inferno Dragon")
+    print("2. Skarmy")
+    print("3. Baby Dragon")
+    print("4. Valkyrie")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("Your opponent places a bulding to late and the Inferno Dragon locks onto the tower. You get good damage in.\n")
+        op_tower = op_tower - 1000
+        mega_knight()
+    elif choice == "2":
+        print("Your opponent counters it easily with a log.\n")
+        mega_knight()
+    elif choice == "3":
+        print("Your opponent plays an executioner and easily counters it.\n")
+        mega_knight()
+    elif choice == "4":
+        print("Your opponent plays skarmy on the valkyrie for some reason and you get easy damage on the tower.\n")
+        mega_knight()
+        op_tower = op_tower - 500
+    else:
+        print("Invalid Input. Must be a number 1-4.")
+        sparky_counterpush()
+def emote_war():
+    print("\nYour opponent sends a laughing emote, very proud of what one of the most no-skill cards in the game did. How do you counter?")
+    print("1. Chicken emote")
+    print("2. Pig shaking its butt emote")
+    print("3. Goblin mimimimi emote")
+    print("4. Goblin rolling eyes emote")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("You get ragebaited successfully and you were distracted long enough for your opponent to place a sneaky golem and take your tower.")
+        if doubt > 0:
+            ending_2()
+        else:
+            ending_3()
+    elif choice == "2":
+        emote_war_2()
+    elif choice == "3":
+        print("You prove that you're a pay to win because you spent 5 dollars on an emote. Your opinion is invalidated. The match continues.\n")
+        minute_left()
+    elif choice == "4":
+        emote_war_2()
+    else:
+        print("Invalid Input. Must be a number 1-4.")
+        emote_war()
+def emote_war_2():
+    print("\nYou counter his emote, but then he sends a baby crying emote. What do you send back?")
+    print("1. Shrugging emote")
+    print("2. Goblin mimimimi emote")
+    print("3. Mute him")
+    print("4. Do nothing and focus on the game")
+    choice = input(">>>")
+    print()
+    if choice == "1":
+        print("You counter successfully and your opponent leaves out of shame. This is what the internet has come to. You get an easy 3-crown.")
+        ending_5()
+    elif choice == "2":
+        print("You prove that you're a pay to win because you spent 5 dollars on an emote. Your opinion is invalidated. The match continues.\n")
+        minute_left()
+    elif choice == "3":
+        print("You mute him. He is too distracted spamming emotes, so you send a single skarmy and it takes his tower.")
+        if doubt > 0:
+            ending_4()
+        else:
+            ending_5()
+    elif choice == "4":
+        print("You won spiritually, but this is online, that doesn't exist. Your opponent pulls out a push I can't even say out loud. All I can say is you're doomed.")
+        ending_2()
+    else:
+        print("Invalid Input. Must be a number 1-4.")
+        emote_war_2()
 def mk_cannon():
     global my_tower
     global op_tower
@@ -244,14 +313,14 @@ def mk_cannon():
             print("It would've worked, but you activated the King Tower by fireballing it so you only get chip damage.")
             op_tower = op_tower - 500
             print(op_tower)
-            final_minute()
+            minute_left()
         else:
             print("Your opponent can't defend the dragon and you get a lot of damage on the tower.")
             op_tower = op_tower - 2000
-            final_minute()
+            minute_left()
     elif choice == "2":
         print("He didn't have a lot of elixir, but he had a little. Your push gets ruined by a single log.\n")
-        final_minute()
+        minute_left()
     elif choice == "3":
         prince_push()
     elif choice == "4":
@@ -273,7 +342,7 @@ def mk_inferno():
         prince_push()
     elif choice == "2":
         print("He didn't have a lot of elixir, but he had a little. Your push gets ruined by a single log.\n")
-        final_minute()
+        minute_left()
     elif choice == "3":
         tower_rocket()
     else:
@@ -295,11 +364,11 @@ def mk_skarmy():
         if king_activate == True:
             print("It would've worked, but you activated the King Tower by fireballing it so you only get chip damage.")
             op_tower = op_tower - 500
-            final_minute()
+            minute_left()
         else:
             print("Your opponent can't defend the dragon and you get a lot of damage on the tower.")
             op_tower = op_tower - 2000
-            final_minute()
+            minute_left()
     elif choice == "2":
         prince_push()
     elif choice == "3":
@@ -319,11 +388,11 @@ def prince_push():
     print()
     if choice == "1":
         print("The log takes the goblins out quickly. They get no damage on the tower.")
-        final_minute()
+        minute_left()
     elif choice == "2":
         print("Your opponent freezes the tower and the goblins get a lot of damage.")
         my_tower = my_tower - 500
-        final_minute()
+        minute_left()
     else:
         print("Invalid Input. Must be a number 1-2.")
         prince_push()
@@ -342,22 +411,22 @@ def tower_rocket():
     if choice == "1":
         print("Your opponent can't defend, good play.")
         op_tower = op_tower - 1000
-        final_minute()
+        minute_left()
     elif choice == "2":
         print("Your opponent plays log. Why do people have swarm decks?")
-        final_minute()
+        minute_left()
     elif choice == "3":
         print("You know, you should save spells for when your opponent can actually defend, but okay.")
         op_tower = op_tower - 200
-        final_minute()
+        minute_left()
     elif choice == "4":
         print("Your opponent mirrors rocket on the tower. Just play a card, you coward.")
         my_tower = my_tower - 600
-        final_minute()
+        minute_left()
     else:
         print("Invalid Input. Must be a number 1-4.")
         tower_rocket()
-def final_minute():
+def minute_left():
     global op_tower
     global doubt
     print("\nYou enter the last minute of the game, and 2x elixir activates. No towers have been taken yet. What do you do?")
@@ -377,7 +446,7 @@ def final_minute():
             print("And that's all the damage you need to get the tower. Your opponent tries to spam on the bridge, but you defend enough to outlast the timer.")
             ending_5()
         else:
-            universal_final_play()
+            final_play()
     elif choice == "2":
         print("You spell the tower. It gets a little damage.")
         op_tower = op_tower - 200
@@ -388,7 +457,7 @@ def final_minute():
             print("And that's all the damage you need to get the tower. Your opponent tries to spam on the bridge, but you defend enough to outlast the timer.")
             ending_5()
         else:
-            universal_final_play()
+            final_play()
     elif choice == "3":
         print("You decide its better to wait for your opponent to plays first so you can properly counter.")
         final_wait()
@@ -398,7 +467,7 @@ def final_minute():
         final_wait()
     else:
         print("Invalid Input. Must be a number 1-4.")
-        final_minute()
+        minute_left()
 def final_wait():
     global my_tower
     global doubt
@@ -406,12 +475,12 @@ def final_wait():
     print("1. Skarmy")
     print("2. Cannon")
     print("3. Evo credit card")
-    print("4. Accept the Defeat and send a 'good game!' emote")
+    print("4. Surrender and spam emotes")
     choice = input(">>>")
     print()
     if choice == "1":
         print("You place a skarmy behind the Pekka as a last desperate play. It somehow works and distracts both troops long enough to not take damage. Your opponent must be fuming.")
-        universal_final_play()
+        final_play()
     elif choice == "2":
         print("You place a cannon to distract. It takes out the Mega Knight, but the Pekka still does massive damage to your tower")
         my_tower = my_tower - 2000
@@ -422,17 +491,17 @@ def final_wait():
             print("The Pekka takes your tower and your opponent sends a chicken emote.\n")
             ending_3()
         else:
-            universal_final_play()
+            final_play()
     elif choice == "3":
         secret_ending_3()
     elif choice == "4":
         doubt = doubt + 1
         print("You can't give up when you came this far. You must keep pushing. You must reach 10k trophies or your life will have no meaning. You place a skarmy behind the Pekka and hope it works.\n\nIt somehow works and distracts both troops long enough to not take damage. Your opponent must be fuming.")
-        universal_final_play()
+        final_play()
     else:
         print("Invalid Input. Must be a number 1-4.")
         final_wait()
-def universal_final_play():
+def final_play():
     global op_tower
     global my_tower
     print("\nIt's overtime now. You feel like this game has lasted forever. If you lose this game, you might consider thinking about deleting the game. What do you do?")
@@ -504,7 +573,7 @@ def universal_final_play():
             print("Invalid Input. Must be a number 1-4.")
         else:
             print("Invalid Input. Must be a number 1-5.")
-        universal_final_play()
+        final_play()
 def encounter():
     global op_tower
     op_tower += 0.0
