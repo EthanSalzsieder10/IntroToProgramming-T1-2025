@@ -7,6 +7,7 @@ def start():
     print("1. Trophy Road")
     print("2. Classic 2v2")
     print("3. Neither, play Clash of Clans")
+    print("4. Don't play a game and focus on your classwork.")
     choice = input(">>>")
     print()
     if choice == "1":
@@ -16,8 +17,10 @@ def start():
         first_play()
     elif choice == "3":
         ending_1()
+    elif choice == "4":
+        classwork()
     else:
-        print("Invalid Input. Must be a number 1-3.")
+        print("Invalid Input. Must be a number 1-4.")
         start()
 def first_play():
     print("You load into a trophy road game. Your opponent's tower level is two above yours and they are already spamming the pig shaking its butt emote.\n")
@@ -372,7 +375,7 @@ def mk_skarmy():
     elif choice == "2":
         prince_push()
     elif choice == "3":
-        secret_ending_2()
+        ending_6()
     else:
         print("Invalid Input. Must be a number 1-4.")
         mk_skarmy()
@@ -493,7 +496,7 @@ def final_wait():
         else:
             final_play()
     elif choice == "3":
-        secret_ending_3()
+        secret_ending_2()
     elif choice == "4":
         doubt = doubt + 1
         print("You can't give up when you came this far. You must keep pushing. You must reach 10k trophies or your life will have no meaning. You place a skarmy behind the Pekka and hope it works.\n\nIt somehow works and distracts both troops long enough to not take damage. Your opponent must be fuming.")
@@ -574,47 +577,52 @@ def final_play():
         else:
             print("Invalid Input. Must be a number 1-5.")
         final_play()
-def encounter():
-    global op_tower
-    op_tower += 0.0
-    print("\n")
-    print("")
-    print("1. ")
-    print("2. ")
-    print("3. ")
-    print("4. ")
+def classwork():
+    for i in range(100):
+        print()
+    print("I will let you do work if you can actually tell me what class you're in.")
+    print("1. English")
+    print("2. Math")
+    print("3. Science")
+    print("4. History")
     choice = input(">>>")
     print()
     if choice == "1":
-        print("")
+        print("Nope. You hop on clash play a trophy road game.")
+        start()
     elif choice == "2":
-        print("")
+        print("Nope. You hop on clash play a trophy road game.")
+        start()
     elif choice == "3":
-        print("")
+        print("Nope. You hop on clash play a trophy road game.")
+        start()
     elif choice == "4":
-        print("")
+        ending_7()
     else:
-        print("Invalid Input. Must be a number 1-4.")
-        encounter()
+        print("No. Don't chicken out of the question.")
+        classwork()
 def ending_1():
     print("\nYou play Clash of Clans.")
-    print("Ending 1 of 5: Worst Ending\n")
+    print("Ending 1 of 7: Worst Ending\n")
 def ending_2():
     print("\nYour opponent spams the laughing emote as you have to watch yourself get 3-Crowned no diff. You will never psycologically recover from this game. Why DO we Clash?")
-    print("Ending 2 of 5: Crashout\n")
+    print("Ending 2 of 7: Crashout\n")
 def ending_3():
     print("\nYou let out a huge sigh as your opponent somehow edges out a win. But if you play ONE more game, you'll come back.")
-    print("Ending 3 of 5: Denial\n")
+    print("Ending 3 of 7: Denial\n")
 def ending_4():
     print("\nYou won, but what does it matter? You will only lose a thousand more games. You would dwell on this thought, but you fingers already clicked the 'play again' button. Eh, one more game.")
-    print("Ending 4 of 5: Doubt\n")
+    print("Ending 4 of 7: Doubt\n")
 def ending_5():
     print("\nLOOOL GGS TOO EZ THIS IS THE BEST GAME EVER")
-    print("Ending 5 of 5: Pride\n")
+    print("Ending 5 of 7: Pride\n")
+def ending_7():
+    print("Wow. You actually got it. I guess you can focus on you classwork now.")
+    print("Ending 7 of 7: Functional Human Being")
 def secret_ending():
     print("\nYou decide that is enough screwing around with your life. You delete Clash and you invest in your future. You grow up to marry your soulmate and have 3 children who live with you in your mansion.")
     print("Secret Ending 1: Best Ending\n")
-def secret_ending_2():
+def ending_6():
     print("****###********####*+-::-*####*##%%%*#%%####**#%##%%%%%%%%#####*+:...:--==+*#=+#####*++**#%%@@@#%@@@")
     print("****#%%%@@@@@%#####%%*-+###%#**%%%%%#*%####%######%%%%%%%%%%####*+:=#@%***###%#%%#%@%###*#%@@##**#%#")
     print("***#%@@@@%@@%%%%@@@@%**#**##**####%%%##%#%##%#%%%#%%@%@%%%%%%#%##*=:+@%##%#####%#*%%%@#%%#*#@#%%%%%%")
@@ -668,7 +676,7 @@ def secret_ending_2():
     print("%#*+*#####%%%%%@%%%%@@@@@@@%%@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")
     print("Siiix Seeeveeeeen. That's a real emote you can get in the game now.")
     print("Ending 6 of 7: 6 7\n")
-def secret_ending_3():
+def secret_ending_2():
     print("%%%%%%@@@@@@@@@@%%%%%%%%%%%#############*##########%%#%%%%%%%%%%#############################*###%%%%%%%%%%%%%%%#*********##################%%%%%%%%%%")
     print("%%%%%%%%@@@@@%%%%%%%%%%%#####********######**************************************************************************************#############%@@%%%%%")
     print("%%%%%%%%%%@%%%%%%%%%%%%###******###*++++++##+*+++++++++++++++++++++++++++++++++++++++++++++++*********++++**++****++++++***********#############%%%%%%")
@@ -746,7 +754,7 @@ def secret_ending_3():
     print("@@@@@@@@@@%%%%%%%%%%%%%%###*********************+++++++++++++++++++++++++++++++++++++++++++++++++**+++++++++*****++++++++++++***#%%%%@@@@@@@@@@@@@@@@@")
     print("@@@@@@@@%%%%%%%%%%%%%%%%%%%#####*********************************************************************************************####%%@@@@@@@@@@@@@@@@@@@\n")
     print("You jam $500 into your phone and play Evil Pekka Barrel, which instantly three-crowns your opponent and hardware bans them from the game. You win.")
-    print("Secret Ending 3: Degeneracy")
+    print("Secret Ending 2: Degeneracy")
 
 
 
@@ -815,5 +823,5 @@ def cinema():
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###%=+**##@@@@@@@@@")
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#%%%*+**%@@@@@@@@@@\n")
 
-print("\nYou are a high school boy who is hopelessly addicted to Clash Royale. You pull out your phone in the middle of math class because you physically can't live without it.")
+print("\nYou are a high school boy who is hopelessly addicted to Clash Royale. You pull out your phone in the middle of History class because you physically can't live without it.")
 start()
