@@ -23,7 +23,7 @@ def start():
         print("Invalid Input. Must be a number 1-4.")
         start()
 def first_play():
-    print("You load into a trophy road game. Your opponent's tower level is two above yours and they are already spamming the pig shaking its butt emote.\n")
+    print("You load into a trophy road game. Your opponent's tower level is two above yours and he's already spamming the pig shaking its butt emote.\n")
     print("The first 10 seconds pass and no one has played a card. You are leaking elixir, as is the enemy. What do you do?")
     print("1. Push Valkyrie and Prince on the bridge")
     print("2. Fireball the Towers")
@@ -578,7 +578,7 @@ def final_play():
             print("Invalid Input. Must be a number 1-5.")
         final_play()
 def classwork():
-    for i in range(100):
+    for i in range(1000):
         print()
     print("I will let you do work if you can actually tell me what class you're in.")
     print("1. English")
@@ -589,13 +589,13 @@ def classwork():
     print()
     if choice == "1":
         print("Nope. You hop on clash play a trophy road game.")
-        start()
+        first_play()
     elif choice == "2":
         print("Nope. You hop on clash play a trophy road game.")
-        start()
+        first_play()
     elif choice == "3":
         print("Nope. You hop on clash play a trophy road game.")
-        start()
+        first_play()
     elif choice == "4":
         ending_7()
     else:
@@ -753,7 +753,7 @@ def secret_ending_2():
     print("@@@@@@@@@@@%%%%%%%%%%%%##**+*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#***##%%@@@@@@@@@@@@@@@@@")
     print("@@@@@@@@@@%%%%%%%%%%%%%%###*********************+++++++++++++++++++++++++++++++++++++++++++++++++**+++++++++*****++++++++++++***#%%%%@@@@@@@@@@@@@@@@@")
     print("@@@@@@@@%%%%%%%%%%%%%%%%%%%#####*********************************************************************************************####%%@@@@@@@@@@@@@@@@@@@\n")
-    print("You jam $500 into your phone and play Evil Pekka Barrel, which instantly three-crowns your opponent and hardware bans them from the game. You win.")
+    print("You jam $500 into your phone and play Evil Pekka Barrel, which instantly three-crowns your opponent and hardware bans him from the game. You win.")
     print("Secret Ending 2: Degeneracy")
 
 
