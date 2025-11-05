@@ -55,7 +55,7 @@ def roulette():
 		roulette()
 	wager = int(wager)
 	print("The wheel is spinning . . .")
-	time.sleep(5)
+	time.sleep(2.5)
 	number = random.randint(1, 38)
 	print()
 	if number == 37:
@@ -120,18 +120,23 @@ def roulette():
 		cont()
 
 def cont():
-	print("Would you like to play again?")
-	print("1. Yes\n2. No")
-	choice = input(">>>")
-	print()
-	if choice == "1":
-		roulette()
-	elif choice == "2":
-		print("You decide to walk.\n")
+	global money
+	if money <= 0:
+		print("You go bankrupt and are kicked out of the casino.\n")
 		stats()
 	else:
-		print("Invalid Input.\n")
-		cont()
+		print("Would you like to play again?")
+		print("1. Yes\n2. No")
+		choice = input(">>>")
+		print()
+		if choice == "1":
+			roulette()
+		elif choice == "2":
+			print("You decide to walk.\n")
+			stats()
+		else:
+			print("Invalid Input.\n")
+			cont()
 def stats():
 	global money
 	if money < 1000:
