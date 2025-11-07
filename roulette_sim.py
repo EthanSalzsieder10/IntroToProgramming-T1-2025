@@ -1,4 +1,4 @@
-money = 1000
+money = 2500
 import random
 import time
 def roulette():
@@ -142,14 +142,14 @@ def cont():
 			cont()
 def stats():
 	global money
-	if money < 1000:
-		print(f"You lost {1000 - money} dollars.")
-	elif money > 1000:
-		print(f"You gained {money - 1000} dollars.")
+	if money < 2500:
+		print(f"You lost {2500 - money} dollars overall.")
+	elif money > 2500:
+		print(f"You gained {money - 2500} dollars overall.")
 	else:
 		print("You broke even.")
 	while True:
 		time.sleep(1)
 
-print("You are a middle-aged father. You decide to gamble your kids' college fund so that you can afford more alcohol. You bring $1000 to the casino.\n")
+print("You are a middle-aged father. You decide to gamble your kids' college fund so that you can afford more alcohol. You bring $2500 to the casino.\n")
 roulette()
