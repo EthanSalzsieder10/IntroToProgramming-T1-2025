@@ -44,6 +44,9 @@ def roulette():
 		elif int(bet) < 1 or int(bet) > 36:
 			print("Invalid Input.\n")
 			roulette()
+	else:
+		print("Invalid Input.\n")
+		roulette()
 	print(f"How much money do you want to bet? You currently have ${money}. Note: Must be a whole number.")
 	wager = input(">>>")
 	print()
@@ -59,11 +62,11 @@ def roulette():
 	number = random.randint(1, 38)
 	print()
 	if number == 37:
-		print("The wheel lands on 0.\n You lose.")
+		print("The wheel lands on 0.\nYou lose.\n")
 		money = money - wager
 		cont()
 	elif number == 38:
-		print("The wheel lands on 00.\n You lose.")
+		print("The wheel lands on 00.\nYou lose.\n")
 		money = money - wager
 		cont()
 	elif number == 32 or number == 19 or number == 21 or number == 25 or number == 34 or number == 27 or number == 36 or number == 30 or number == 23 or number == 5 or number == 16 or number == 1 or number == 14 or number == 9 or number == 18 or number == 7 or number == 12 or number == 3:
