@@ -1,6 +1,16 @@
 money = 2500
 import random
 import time
+def start():
+	game = input("What game would you like to play?\n1. Roulette\n2. Blackjack\n>>>")
+	print()
+	if game == "1":
+		roulette()
+	elif game == "2":
+		blackjack()
+	else:
+		print("Invalid Input\n")
+		start()
 def roulette():
 	global money
 	print("What do you want to bet on?")
@@ -121,6 +131,55 @@ def roulette():
 		money = money - wager
 		print(f"Your new balance is {money}.")
 		cont()
+def blackjack():
+	global money
+	print(f"How much money do you want to bet? You currently have ${money}. Note: Must be a whole number.")
+	wager = input(">>>")
+	print()
+	if not wager.isdigit():
+		print("Invalid Input.\n")
+		blackjack()
+	elif int(wager) > money or int(wager)<=0:
+		print("Invalid Input.\n")
+		blackjack()
+	wager = int(wager)
+	sum = 0
+	card1 = random.randint(1, 13)
+	if card1 == 1:
+		card1disp = "ace"
+	elif card1 == 11:
+		card1disp = "jack"
+		card1 = 10
+	elif card1 == 12:
+		card1disp = "queen"
+		card1 = 10
+	elif card1 == 13:
+		card1disp = "king"
+		card1 = 10
+	else:
+		card1disp = str(card1)
+	card2 = random.randint(1, 13)
+	if card2 == 1:
+		card2disp = "ace"
+	elif card2 == 11:
+		card2disp = "jack"
+		card2 = 10
+	elif card2 == 12:
+		card2disp = "queen"
+		card2 = 10
+	elif card2 == 13:
+		card2disp = "king"
+		card2 = 10
+	else:
+		card2disp = str(card2)
+	print(f"\nYour starting hand is a/n {card1} and a/n {card2}")
+	end = False
+	if (card1disp == "jack" and card2disp == "ace") or (card2disp == "jack" and card1disp == "ace"):
+		print("You got a blackjack.")
+		end = True
+		sum = 22
+	while end == False:
+		print()
 
 def cont():
 	global money
@@ -129,12 +188,14 @@ def cont():
 		stats()
 	else:
 		print("Would you like to play again?")
-		print("1. Yes\n2. No")
+		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. No")
 		choice = input(">>>")
 		print()
 		if choice == "1":
 			roulette()
 		elif choice == "2":
+			blackjack()
+		elif choice == "3":
 			print("You decide to walk.\n")
 			stats()
 		else:
@@ -148,8 +209,6 @@ def stats():
 		print(f"You gained {money - 2500} dollars overall.")
 	else:
 		print("You broke even.")
-	while True:
-		time.sleep(1)
 
 print("You are a middle-aged father. You decide to gamble your kids' college fund so that you can afford more alcohol. You bring $2500 to the casino.\n")
 roulette()
