@@ -195,9 +195,8 @@ def blackjack():
 			print("You stay.")
 			end = True
 		elif not choice == "1":
-			print("Invalid Input. Now you have to restart the whole thing.\n")
-			blackjack()
-			return
+			print("Invalid Input. I'll take it as a stay.")
+			end = True
 		else:
 			new_card = random.randint(1, 13)
 			if new_card == 1:
@@ -211,9 +210,8 @@ def blackjack():
 					elif choice == "2":
 						sum = sum + 11:
 					else:
-						print("Invalid Input. Now you have to restart the whole thing.\n")
-						blackjack()
-						return
+						print("Invalid Input. I'll take it as 11.\n")
+						sum = sum + 11
 			elif new_card == 11:
 				print("Jack.")
 				sum = sum + 10
