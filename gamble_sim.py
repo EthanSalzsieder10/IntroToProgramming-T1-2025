@@ -3,7 +3,7 @@ import random
 import time
 import sys
 def start():
-	game = input("What game would you like to play?\n1. Roulette\n2. Blackjack(Wouldn't recommend, very poorly coded)\n3. Horse Racing\n>>>")
+	game = input("What game would you like to play?\n1. Roulette\n2. Blackjack\n3. Horse Racing\n>>>")
 	print()
 	if game == "1":
 		roulette()
@@ -166,7 +166,7 @@ def blackjack():
 	card2 = random.randint(1, 13)
 	if card2 == 1:
 		card2disp = "ace"
-		if not card == 11:
+		if not card2 == 11:
 			card2 = 11
 	elif card2 == 11:
 		card2disp = "jack"
@@ -179,7 +179,7 @@ def blackjack():
 		card2 = 10
 	else:
 		card2disp = str(card2)
-	print(f"\nYour starting hand is a/n {card1disp} and a/n {card2disp}")
+	print(f"\nYour starting hand is a {card1disp} and a {card2disp}")
 	end = False
 	sum = card1 + card2
 	print()
@@ -192,13 +192,14 @@ def blackjack():
 		print("1. Hit\n2. Stay")
 		choice = input(">>>")
 		if choice == "2":
-			print("You stay.")
+			print("\nYou stay.")
 			end = True
 		elif not choice == "1":
 			print("Invalid Input. I'll take it as a stay.")
 			end = True
 		else:
 			new_card = random.randint(1, 13)
+			print()
 			if new_card == 1:
 				print("Ace.")
 				if (sum + 11) > 21:
@@ -208,7 +209,7 @@ def blackjack():
 					if choice == "1":
 						sum = sum + 1
 					elif choice == "2":
-						sum = sum + 11:
+						sum = sum + 11
 					else:
 						print("Invalid Input. I'll take it as 11.\n")
 						sum = sum + 11
@@ -224,20 +225,23 @@ def blackjack():
 			else:
 				print(f"{new_card}.")
 				sum = sum + new_card
+			print()
 			if sum == 21:
-				print("You get 21 and must stay.")
+				print("\nYou get 21 and must stay.")
 				end = True
 			elif sum > 21:
-				print("You bust and lose.")
+				print("You bust and lose.\n")
 				end = True
 				money = money - wager
 				print(f"Your new balance is {money}.")
 				cont()
 				return
 	print()
+	print("The dealer is playing . . .\n")
+	time.sleep(2.5)
 	dealer_blackjack = random.randint(1, 1000)
 	if dealer_blackjack < 49:
-		print("The dealer gets a blackjack.")
+		print("The dealer gets a blackjack.\n")
 		if sum == 22:
 			print("You push. No money is gained or lost.")
 			cont()
@@ -249,31 +253,31 @@ def blackjack():
 	else:
 		dealer_hand = random.randint(17, 26)
 		if dealer_hand > 21:
-			print("The dealer busts.")
-			print("You win!")
+			print("The dealer busts.\n")
+			print("You win!\n")
 			money = money + wager
-			print(f"Your new balance is {money}.")
+			print(f"Your new balance is {money}.\n")
 			cont()
 		elif sum == dealer_hand:
-			print(f"The dealer gets a {dealer_hand}.")
-			print("You push. No money is gained or lost.")
+			print(f"The dealer gets a {dealer_hand}.\n")
+			print("You push. No money is gained or lost.\n")
 			cont()
 		elif sum > dealer_hand:
-			print(f"The dealer gets a {dealer_hand}.")
-			print("You win!")
+			print(f"The dealer gets a {dealer_hand}.\n")
+			print("You win!\n")
 			money = money + wager
-			print(f"Your new balance is {money}.")
+			print(f"Your new balance is {money}.\n")
 			cont()
 		else:
-			print(f"The dealer gets a {dealer_hand}.")
-			print("You lose.")
+			print(f"The dealer gets a {dealer_hand}.\n")
+			print("You lose.\n")
 			money = money - wager
-			print(f"Your new balance is {money}.")
+			print(f"Your new balance is {money}.\n")
 			cont()
 
 def horse_race():
 	global money
-	print("Which horse would you like to bet on?\nHorse 1: 1 to 1 odds\nHorse 2: 3 to 1 odds\nHorse 3: 7 to 1 odds\n Horse 4: 7 to 1 odds")
+	print("Which horse would you like to bet on?\nHorse 1: 1 to 1 odds\nHorse 2: 3 to 1 odds\nHorse 3: 7 to 1 odds\nHorse 4: 7 to 1 odds")
 	bet = input(">>>")
 	print()
 	if not(bet == "1" or bet == "2" or bet == "3" or bet == "4"):
@@ -290,9 +294,10 @@ def horse_race():
 		print("Invalid Input.\n")
 		horse_race()
 	wager = int(wager)
-	print()
-	outcome = random.randint(1, 40)
-	if outcome < 21:
+	print("Race is in progress . . .\n")
+	time.sleep(2.5)
+	outcome = random.randint(1, 8)
+	if outcome < 5:
 		print("Horse 1 wins.\n")
 		if bet == "1":
 			print("You win!")
@@ -304,7 +309,7 @@ def horse_race():
 			money = money - wager
 			print(f"Your new balance is {money}.")
 			cont()
-	elif outcome < 31:
+	elif outcome < 7:
 		print("Horse 2 wins.\n")
 		if bet == "2":
 			print("You win!")
@@ -316,7 +321,7 @@ def horse_race():
 			money = money - wager
 			print(f"Your new balance is {money}.")
 			cont()
-	elif outcome < 36:
+	elif outcome < 8:
 		print("Horse 3 wins.\n")
 		if bet == "3":
 			print("You win!")
@@ -348,7 +353,7 @@ def cont():
 		stats()
 	else:
 		print("Would you like to play again?")
-		print("1. Yes, Roulette\n2. Yes, Blackjack(Again, don't recommend)\n3. Yes, Horce Racing\n4. No")
+		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horce Racing\n4. No")
 		choice = input(">>>")
 		print()
 		if choice == "1":
@@ -375,4 +380,4 @@ def stats():
 	sys.exit(0)
 
 print("You are a middle-aged father. You decide to gamble your kids' college fund so that you can afford more alcohol. You bring $5000 to the casino.\n")
-roulette()
+start()
