@@ -351,7 +351,7 @@ def horse_race():
 def slots():
 	symbols = ["7","%","#","@","&"]
 	global money
-	print("3 of a kind: 1 to 1 payout\n4 of a kind: 3 to 1 payout\n5 of a kind: 5 to 1 payout\n5 7's: 10 to 1 payout\n\nEnter to Continue")
+	print("3 of a kind: 2 to 1 payout\n4 of a kind: 4 to 1 payout\n5 of a kind: 5 to 1 payout\n5 7's: 10 to 1 payout\n\nEnter to Continue")
 	input("")
 	print(f"How much money do you want to bet? You currently have ${money}. Note: Must be a whole number.\nThis bet will be applied to all spins.")
 	wager = input(">>>")
@@ -373,7 +373,7 @@ def slots():
 		s3 = symbols[random.randint(0, 4)]
 		s4 = symbols[random.randint(0, 4)]
 		s5 = symbols[random.randint(0, 4)]
-		print(f"{s1} | {s2} | {s3} | {s4} | {s5}\n")
+		print(f"-------------------\n{s1} | {s2} | {s3} | {s4} | {s5}\n-------------------\n")
 		if s1 == "7" and s2 == "7" and s3 == "7" and s4 == "7" and s5 == "7":
 			print("You Got The Jackpot!")
 			money = money + (wager * 10)
@@ -384,11 +384,11 @@ def slots():
 			print(f"Your new balance is {money}.")
 		elif (s1 == s2 and s2 == s3 and s3 == s4) or (s1 == s2 and s2 == s3 and s3 == s5) or (s1 == s2 and s2 == s4 and s4 == s5) or (s1 == s3 and s3 == s4 and s4 == s5) or (s2 == s3 and s3 == s4 and s4 == s5):
 			print("Four of a Kind!")
-			money = money + (wager * 3)
+			money = money + (wager * 4)
 			print(f"Your new balance is {money}.")
 		elif (s1 == s2 and s2 == s3) or (s1 == s2 and s2 == s4) or (s1 == s2 and s2 == s5) or (s1 == s3 and s3 == s4) or (s1 == s4 and s4 == s5) or (s1 == s3 and s3 == s5) or (s2 == s3 and s3 == s4) or (s2 == s3 and s3 == s5) or (s2 == s4 and s4 == s5) or (s3 == s4 and s4 == s5):
 			print("Three of a Kind!")
-			money = money + wager
+			money = money + (wager * 2)
 			print(f"Your new balance is {money}.")
 		else:
 			print("You lose.")
@@ -414,7 +414,7 @@ def cont():
 		stats()
 	else:
 		print("Would you like to play again?")
-		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horse Racing\n4. Slots\n5. No")
+		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horse Racing\n4. Yes, Slots\n5. No")
 		choice = input(">>>")
 		print()
 		if choice == "1":
