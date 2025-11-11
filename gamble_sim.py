@@ -346,6 +346,65 @@ def horse_race():
 			print(f"Your new balance is {money}.")
 			cont()
 
+def slots():
+	symbols = ["7","%","#","@","&","=","+"]
+	global money
+	print("3 of a kind: 1 to 1 payout\n4 of a kind: 3 to 1 payout\n5 of a kind: 5 to 1 payout\n5 7's: 10 to 1 payout\n\nEnter to Continue")
+	input("")
+	print(f"How much money do you want to bet? You currently have ${money}. Note: Must be a whole number.\nThis bet will be applied to all spins.")
+	wager = input(">>>")
+	print()
+	if not wager.isdigit():
+		print("Invalid Input.\n")
+		slots()
+	elif int(wager) > money or int(wager)<=0:
+		print("Invalid Input.\n")
+		slots()
+	wager = int(wager)
+	end = False
+	input("Enter to spin\n")
+	while end == False:
+		print("\nSpinning . . .\n")
+		time.sleep(1)
+		s1 = symbols[random.randint(0, 6)]
+		s2 = symbols[random.randint(0, 6)]
+		s3 = symbols[random.randint(0, 6)]
+		s4 = symbols[random.randint(0, 6)]
+		s5 = symbols[random.randint(0, 6)]
+		print(f"{s1} | {s2} | {s3} | {s4} | {s5}\n")
+		if s1 == "7" and s2 == "7" and s3 == "7" and s4 == "7" and s5 == "7":
+			print("You Got The Jackpot!")
+			money = money + (wager * 10)
+			print(f"Your new balance is {money}.")
+		elif s1 == s2 and s2 == s3 and s3 == s4 and s4 == s5:
+			print("Five of a kind!")
+			money = money + (wager * 5)
+			print(f"Your new balance is {money}.")
+		elif (s1 == s2 and s2 == s3 and s3 == s4) or (s1 == s2 and s2 == s3 and s3 == s5) or (s1 == s2 and s2 == s4 and s4 == s5) or (s1 == s3 and s3 == s4 and s4 == s5) or (s2 == s3 and s3 == s4 and s4 == s5):
+			print("Four of a Kind!")
+			money = money + (wager * 3)
+			print(f"Your new balance is {money}.")
+		elif (s1 == s2 and s2 == s3) or (s1 == s2 and s2 == s4) or (s1 == s2 and s2 == s5) or (s1 == s3 and s3 == s4) or (s1 == s4 and s4 == s5) or (s1 == s3 and s3 == s5) or (s2 == s3 and s3 == s4) or (s2 == s3 and s3 == s5) or (s2 == s4 and s4 == s5) or (s3 == s4 and s4 == s5):
+			print("Three of a Kind!")
+			money = money + wager
+			print(f"Your new balance is {money}.")
+		else:
+			print("You lose.")
+			money = money - wager
+			print(f"Your new balance is {money}.")
+		print()
+		if money < wager:
+			print("You don't have enough money to keep playing.")
+			end == True
+			break
+		x = input('Enter to spin or input "stop" to stop playing')
+		if x.lower == "stop":
+			end == True
+			break
+	print()
+	cont()
+		
+
 def cont():
 	global money
 	if money <= 0:
@@ -353,7 +412,7 @@ def cont():
 		stats()
 	else:
 		print("Would you like to play again?")
-		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horce Racing\n4. No")
+		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horse Racing\n4. No")
 		choice = input(">>>")
 		print()
 		if choice == "1":
