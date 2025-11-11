@@ -3,7 +3,7 @@ import random
 import time
 import sys
 def start():
-	game = input("What game would you like to play?\n1. Roulette\n2. Blackjack\n3. Horse Racing\n>>>")
+	game = input("What game would you like to play?\n1. Roulette\n2. Blackjack\n3. Horse Racing\n4. Slots\n>>>")
 	print()
 	if game == "1":
 		roulette()
@@ -11,6 +11,8 @@ def start():
 		blackjack()
 	elif game == "3":
 		horse_race()
+	elif game == "4":
+		slots()
 	else:
 		print("Invalid Input\n")
 		start()
@@ -347,7 +349,7 @@ def horse_race():
 			cont()
 
 def slots():
-	symbols = ["7","%","#","@","&","=","+"]
+	symbols = ["7","%","#","@","&"]
 	global money
 	print("3 of a kind: 1 to 1 payout\n4 of a kind: 3 to 1 payout\n5 of a kind: 5 to 1 payout\n5 7's: 10 to 1 payout\n\nEnter to Continue")
 	input("")
@@ -366,11 +368,11 @@ def slots():
 	while end == False:
 		print("\nSpinning . . .\n")
 		time.sleep(1)
-		s1 = symbols[random.randint(0, 6)]
-		s2 = symbols[random.randint(0, 6)]
-		s3 = symbols[random.randint(0, 6)]
-		s4 = symbols[random.randint(0, 6)]
-		s5 = symbols[random.randint(0, 6)]
+		s1 = symbols[random.randint(0, 4)]
+		s2 = symbols[random.randint(0, 4)]
+		s3 = symbols[random.randint(0, 4)]
+		s4 = symbols[random.randint(0, 4)]
+		s5 = symbols[random.randint(0, 4)]
 		print(f"{s1} | {s2} | {s3} | {s4} | {s5}\n")
 		if s1 == "7" and s2 == "7" and s3 == "7" and s4 == "7" and s5 == "7":
 			print("You Got The Jackpot!")
@@ -397,8 +399,8 @@ def slots():
 			print("You don't have enough money to keep playing.")
 			end == True
 			break
-		x = input('Enter to spin or input "stop" to stop playing')
-		if x.lower == "stop":
+		x = input('Enter to spin or input "stop" to stop playing\n')
+		if x.lower() == "stop":
 			end == True
 			break
 	print()
@@ -412,7 +414,7 @@ def cont():
 		stats()
 	else:
 		print("Would you like to play again?")
-		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horse Racing\n4. No")
+		print("1. Yes, Roulette\n2. Yes, Blackjack\n3. Yes, Horse Racing\n4. Slots\n5. No")
 		choice = input(">>>")
 		print()
 		if choice == "1":
@@ -422,6 +424,8 @@ def cont():
 		elif choice == "3":
 			horse_race()
 		elif choice == "4":
+			slots()
+		elif choice == "5":
 			print("You decide to walk.\n")
 			stats()
 		else:
