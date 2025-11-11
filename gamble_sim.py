@@ -349,7 +349,7 @@ def horse_race():
 			cont()
 
 def slots():
-	symbols = ["7","%","#","@","&"]
+	symbols = ["7","%","#","@"]
 	global money
 	print("3 of a kind: 2 to 1 payout\n4 of a kind: 4 to 1 payout\n5 of a kind: 5 to 1 payout\n5 7's: 10 to 1 payout\n\nEnter to Continue")
 	input("")
@@ -366,13 +366,13 @@ def slots():
 	end = False
 	input("Enter to spin\n")
 	while end == False:
-		print("\nSpinning . . .\n")
+		print("Spinning . . .\n")
 		time.sleep(1)
-		s1 = symbols[random.randint(0, 4)]
-		s2 = symbols[random.randint(0, 4)]
-		s3 = symbols[random.randint(0, 4)]
-		s4 = symbols[random.randint(0, 4)]
-		s5 = symbols[random.randint(0, 4)]
+		s1 = symbols[random.randint(0, 3)]
+		s2 = symbols[random.randint(0, 3)]
+		s3 = symbols[random.randint(0, 3)]
+		s4 = symbols[random.randint(0, 3)]
+		s5 = symbols[random.randint(0, 3)]
 		print(f"-------------------\n{s1} | {s2} | {s3} | {s4} | {s5}\n-------------------\n")
 		if s1 == "7" and s2 == "7" and s3 == "7" and s4 == "7" and s5 == "7":
 			print("You Got The Jackpot!")
